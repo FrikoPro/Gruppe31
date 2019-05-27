@@ -10,10 +10,17 @@ ___
 Kanban'ish WebApp
 
 
-#### Project Log
-___
+
+## Project Log
 ##### 27.05.2019
-To do
+Felles git, research
+
+## GIT Cheats
+1) Her kan du legge inn git commands Fredrik
+```git
+git clone <repo>
+```
+
 
 
 

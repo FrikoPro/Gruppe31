@@ -1,0 +1,59 @@
+#merkelapp{
+    background-color: aliceblue;
+    border: 2px solid red;
+    height: 250px;
+    width: 250px;
+    top: 20px;
+    position: relative;
+}
+
+h3{
+    text-align: center;
+    margin-top: 20px;
+}
+
+#head{
+    height: 70px;
+    background-color: darkblue;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.users{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 2px solid red;
+}
+
+#firstUser{
+    background-color: blueviolet;
+    left: 97%;
+    top: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+#secondUser {
+    background-color: chartreuse;
+    left: 94.5%;
+    top: -23px;
+    position: relative;
+    
+}
+
+#thirdUser {
+    background-color: crimson;
+    position: relative;
+    top: -67px;
+    left: 92%;
+}
+
+.textUser{
+    position: relative;
+    bottom: 10px;
+}
+
+
+

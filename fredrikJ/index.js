@@ -16,9 +16,6 @@ merkelapp.addEventListener("dragover", e => {
 });
 
 
-function activities()
-
-
 var mdlmFelt = document.createElement("div");
 var notCreatedDiv = true;
 

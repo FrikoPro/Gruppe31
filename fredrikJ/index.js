@@ -1,12 +1,17 @@
+// medlemsikonene
 var users = document.getElementsByClassName("users");
 
+// merkelappen er en type arbeidsoppgave. Denne kan
+// dra andre brukere over.
 var merkelapp = document.getElementById("merkelapp");
 merkelapp.setAttribute("draggable", true);
 
+// setter på attributes på alle medlemsikonene
 for(var i=0; i<users.length; i++) {
     users[i].setAttribute("draggable", true);
 }
 
+// Medlemmsikonens tekst 
 var textUser = document.getElementsByClassName("textUser");
 
 
@@ -15,8 +20,10 @@ merkelapp.addEventListener("dragover", e => {
     e.dataTransfer.dropEffect = "move";
 });
 
-
+// lager en tom div som settes inn i merkelappen
+// her blir meldemmene droppet inni
 var mdlmFelt = document.createElement("div");
+// hindre at flere div'er blir laget under eventet
 var notCreatedDiv = true;
 
 merkelapp.addEventListener("drop", e => {
@@ -46,6 +53,8 @@ merkelapp.addEventListener("drop", e => {
     
 });
 
+
+// setter id på meldemsikonene
 users[0].addEventListener("dragstart", e => {
     console.log("dragstart", e);
     id = e.target.id;

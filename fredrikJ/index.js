@@ -55,18 +55,11 @@ merkelapp.addEventListener("drop", e => {
 
 
 // setter id på meldemsikonene
-users[0].addEventListener("dragstart", e => {
+for(var i =0; i <users.length; i++){
+    users[i].addEventListener("dragstart", e => {
     console.log("dragstart", e);
     id = e.target.id;
 });
 
-users[1].addEventListener("dragstart", e => {
-    console.log("dragstart", e);
-    id = e.target.id;
-});
-
-users[2].addEventListener("dragstart", e => {
-    console.log("dragstart", e);
-    id = e.target.id;
-});
+}
 

@@ -1,7 +1,7 @@
 let users = [
-    {name: "Sindre", password: "Password123"},
-    {name: "Bengt", password: "h4x0r1337"},
-    {name: "test", password: "test1234"}
+    {name: "Sindre", firstName: "Sindre", lastName: "Fromreide Bore", password: "Password123"},
+    {name: "Bengt", firstName: "Bengt", lastName: "Bengen", password: "h4x0r1337"},
+    {name: "test", firstName: "test", lastName: "test", password: "test1234"}
 ];
 
 //DOM-element variables
@@ -16,6 +16,9 @@ let loginToRegisterElement = document.getElementById("loginToRegister");
 let registerToLoginElement = document.getElementById("registerToLogin");
 let loginInterfaceElement = document.getElementById("loginInterface");
 let registerInterfaceElement = document.getElementById("registerInterface");
+let registerFirstNameInputElement = document.getElementById("registerFirstNameInput");
+let registerLastNameInputElement = document.getElementById("registerLastNameInput");
+
 
 //Checks the value of the login inputs against the objects in the users array
 loginBtnElement.addEventListener("click", function(){
@@ -41,13 +44,19 @@ registerBtnElement.addEventListener("click", function(){
     //Compares the username input to usernames that are already in the users array
     let isUserTaken = users.find(o => o.name === registerUsernameInputElement.value);
     
-    //Here we check if the password is the same in both input fields, that both username and password are within the character limit, and that the username is not already in use
+    //Here we check if the password is the same in both input fields, that both username and password are within the character limit, and that the username is not already in use. The name inputs can't be empty.
     if(registerPasswordInputElement.value === confirmPasswordInputElement.value 
        && registerPasswordInputElement.value.length >= 6 
        && registerPasswordInputElement.value.length <= 18 
        && registerUsernameInputElement.value.length <= 20
+       && registerFirstNameInputElement.value !== ""
+       && registerLastNameInputElement.value !== ""
        && !isUserTaken){
-        users[users.length] = {name: registerUsernameInputElement.value, password: registerPasswordInputElement.value}
+        users[users.length] = 
+            {name: registerUsernameInputElement.value, 
+             firstName: registerFirstNameInputElement.value,
+             lastName: registerLastNameInputElement.value,
+             password: registerPasswordInputElement.value}
         
         registerUsernameInputElement.value = "User created"
     } else{

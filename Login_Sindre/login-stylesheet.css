@@ -1,5 +1,5 @@
 .credentialsInterface{
-    height: 350px;
+    height: 400px;
     width: 500px;
     background-color: rgb(183, 183, 183);
     border: solid;
@@ -37,7 +37,7 @@
 
 #loginToRegister{
     position: absolute;
-    top: 325px;
+    top: 380px;
     left: 200px;
 }
 
@@ -50,9 +50,17 @@
     font-size: 36px;
 }
 
+#registerFirstNameInput{
+    left: 75;
+}
+
+#registerLastNameInput{
+    left: 75;
+}
+
 #registerBtn{
     position: absolute;
-    top:280px;
+    top:350px;
     left: 235px;
 }
 
@@ -63,7 +71,8 @@
 
 #registerToLogin{
     position: absolute;
-    top: 325px;
+    top: 380px;
     left: 175px;
 }
+
 

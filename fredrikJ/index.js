@@ -59,7 +59,6 @@ for(var i =0; i <users.length; i++){
     users[i].addEventListener("dragstart", e => {
     console.log("dragstart", e);
     id = e.target.id;
-});
-
+    });
 }
 

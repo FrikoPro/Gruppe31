@@ -62,7 +62,7 @@ a{
 
 /* MAIN CONTENT */
 .container{
-    margin-top: 80px;
+    margin-top: 20px;
 }
 #image{
     height: 100px;
@@ -76,7 +76,7 @@ a{
 }
 .card{
     margin: 20px;
-    border-radius: 25px;
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;

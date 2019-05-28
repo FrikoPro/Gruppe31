@@ -20,6 +20,7 @@ let registerInterfaceElement = document.getElementById("registerInterface");
 //Checks the value of the login inputs against the objects in the users array
 loginBtnElement.addEventListener("click", function(){
     
+    //Checks if the combination of username and password inputs are found in any of the objects in the users array
     let credentialCheck = users.find(o => o.name === usernameInputElement.value && o.password === passwordInputElement.value);
     
     
@@ -37,6 +38,7 @@ loginBtnElement.addEventListener("click", function(){
 //Register a new user
 registerBtnElement.addEventListener("click", function(){
     
+    //Compares the username input to usernames that are already in the users array
     let isUserTaken = users.find(o => o.name === registerUsernameInputElement.value);
     
     //Here we check if the password is the same in both input fields, that both username and password are within the character limit, and that the username is not already in use
@@ -53,6 +55,7 @@ registerBtnElement.addEventListener("click", function(){
     }
 })
 
+//Buttons to alternate between log in and registration mode
 loginToRegisterElement.addEventListener("click", function(){
     
     loginInterfaceElement.style.display = "none";

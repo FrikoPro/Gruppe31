@@ -12,13 +12,10 @@ for (var i=0; i<users.length; i++) {
     users[i].setAttribute("draggable", true);
 }
 
-// creates a list of the users
-var userList = [];
+// creates a list of the users id.
+var cardList = [];
 
 // pushing userId into userList
-for (var i=0; i<users.length; i++) {
-    userList.push(users[i].getAttribute("id"));
-}
 
 // references to the ID of card and user
 var cardId;
@@ -34,10 +31,13 @@ for (var i=0; i<cards.length; i++) {
     });
     cards[i].addEventListener("drop", e => {
         console.log("DROP", e);
-                var user = document.getElementById(userId);
-                var card = document.getElementById(cardId);
-                var cln = user.cloneNode(true);
-                card.appendChild(cln);
+        if (!cardList.includes(userId)) {
+            cardList.push(userId);
+            var user = document.getElementById(userId);
+            var card = document.getElementById(cardId);
+            var cln = user.cloneNode(true);
+            card.appendChild(cln);
+        }
     });
 }
 

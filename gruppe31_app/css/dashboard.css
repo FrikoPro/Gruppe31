@@ -34,6 +34,7 @@ a{
     margin-right: 20px;
 }
 
+<<<<<<< HEAD
 .users{
     width: 40px;
     height: 40px;
@@ -61,6 +62,9 @@ a{
 }
 
 /* MAIN CONTENT */
+=======
+/* MAIN CONTENT */
+>>>>>>> FredrikHBranch
 .container{
     margin-top: 20px;
 }
@@ -99,4 +103,3 @@ a{
 .text{
     padding: 20px;
 }
-

@@ -22,24 +22,7 @@ var cardId;
 var userId;
 
 
-// adding eventListeners to cards
-for (var i=0; i<cards.length; i++) {
-    cards[i].addEventListener("dragover", e => {
-        e.preventDefault();
-        e.dataTransfer.dropEffect = "move";
-        cardId = e.target.id;
-    });
-    cards[i].addEventListener("drop", e => {
-        console.log("DROP", e);
-        if (!cardList.includes(userId)) {
-            cardList.push(userId);
-            var user = document.getElementById(userId);
-            var card = document.getElementById(cardId);
-            var cln = user.cloneNode(true);
-            card.appendChild(cln);
-        }
-    });
-}
+
 
 // putting id's on the users
 for(var i =0; i<users.length; i++){
@@ -47,4 +30,70 @@ for(var i =0; i<users.length; i++){
         console.log("dragstart", e);
         userId = e.target.id;
     });
+}
+
+let newProjectBtn = document.getElementById("btnCreateCard");
+let mainElement = document.getElementById("main");
+
+newProjectBtn.addEventListener("click", AddProject);
+
+var projects =[];
+
+function AddProject(){
+    let newProjectObj = {
+        name: prompt("name"),
+        info: prompt("info")
+    }
+    console.log(projects.length);
+    projects.push(newProjectObj);
+    
+    RenderProject(projects[projects.length-1]);
+}
+
+
+function RenderProject(project){
+    var createArticle = document.createElement("ARTICLE");
+    var createDiv = document.createElement("DIV");
+    var createH3 = document.createElement("H3");
+    var createP = document.createElement("P");
+    var createBtn = document.createElement("button");
+    var createLink = document.createElement("a");
+    
+    createArticle.className = "card";
+    createDiv.className = "text";
+    createBtn.className = "button";
+    
+    createArticle.id = project.name;
+    
+    createH3.innerText = project.name;
+    createP.innerText = project.info;
+    createLink.innerText = "Enter";
+    
+    mainElement.appendChild(createArticle);
+    createArticle.appendChild(createDiv);
+    createDiv.appendChild(createH3);
+    createDiv.appendChild(createP);
+    createDiv.appendChild(createBtn);
+    createBtn.appendChild(createLink);
+    
+    
+    createArticle.addEventListener("drop", e => {
+        console.log("DROP", e);
+        if (!cardList.includes(userId)) {
+            cardList.push(userId);
+            var user = document.getElementById(userId);
+            var card = document.getElementById(cardId);
+            var cln = user.cloneNode(true);
+            card.appendChild(cln);
+        } else {alert("already in list")};
+    });
+    
+    createArticle.addEventListener("dragover", e => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+        cardId = e.target.id;
+    });
+    
+    createLink.setAttribute("href", "project.html");
+    console.log(createBtn);
 }

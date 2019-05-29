@@ -1,6 +1,4 @@
 
-
-
 //Pusher en ny dropZone inn i arrayet DropZones[] og legger det up på siden.
 function AddZone(){
     
@@ -39,7 +37,7 @@ function dragstart_handler(event) {
         
 //dragOver start func, som kjøres når man holder det over et som er "dropable"
 function dragover_handler(event) {
-        
+    console.log("dragover: " + event.target.id);
     event.preventDefault();
         
 }
@@ -144,7 +142,7 @@ const cards = [
     {
         name: "Planlegge",
         description: "planlegge alt som skal gjøres",
-        status: "todo"     
+        status: "todo"      
     },
     {
         name: "Lage",

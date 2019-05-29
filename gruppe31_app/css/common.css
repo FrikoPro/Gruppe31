@@ -1,0 +1,32 @@
+/* BUTTONS */
+.common-button{
+    background-color: #589bea;
+    border: none;
+    color: #ffff;
+    text-align: center;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+/* GRID */
+.common-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 20px;
+    align-items: stretch;
+}
+/* CARD */
+.common-card{
+    display: flex;
+    margin: 20px;
+    border-radius: 15px;
+}
+/* SHADOW */
+.common-shadow{
+    box-shadow: 2px 2px 6px 0 rgba(209, 209, 209, 1);
+}
+.common-shadow-r{
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 6px 0 rgba(209, 209, 209, 1);
+}

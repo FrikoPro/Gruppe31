@@ -95,7 +95,7 @@ a{
 
 /* CARD */
 .card-project{
-    display: block;
+    display: grid;
     margin: 10px;
     border-radius: 15px;
     background: #fff;
@@ -108,10 +108,12 @@ a{
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
+    height: 50px;
 }
 .card-title{
     margin-left: 10px;
     color: #777;
+    font-size: 16px;
 }
 .card-title-button{
     background-color: #589BEA;
@@ -120,11 +122,18 @@ a{
     text-align: center;
     text-decoration: none;
     width: 50px;
+    height: 50px;
     border-radius: 0 10px 0 10px;
 }
 .card-content{
     width: 100%;
-    height: 50px;
+}
+.card-content-text{
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #555;
+
 }
 .card-members{
     background: #EEEEEE;

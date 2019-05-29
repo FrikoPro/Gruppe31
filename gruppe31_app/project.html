@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/project.css">
     <title>Gruppe 31 | Kanban</title>
 </head>
@@ -16,7 +17,7 @@
        <nav class="nav">
            <div class="navbar">
                <div id="logo">
-                   <h1>Gruppe 31</h1>
+                   <h1><a href="dashboard.html">Gruppe 31</a></h1>
                </div>
                <div class="nav-links">
                    <a href="#">Link1</a>
@@ -40,7 +41,7 @@
             <!-- COLUMN HEADER -->
             <div class="column-header">
                 <h1 class="column-header-text">Column Header</h1>
-                <button class="column-header-btn">Edit</button>
+                <button class="column-header-btn"><i class="fas fa-bars"></i></button>
             </div>
             <!-- COLUMN HEADER END -->
 
@@ -48,9 +49,13 @@
         <article class="card-project">
             <div class="card-header">
                     <h3 class="card-title">Card Title</h3>
-                    <button class="card-title-button">***</button>
+                    <button class="card-title-button"><i class="fas fa-ellipsis-h"></i></button>
             </div>
-            <div class="card-content">Card Content</div>
+            <div class="card-content">
+                <p class="card-content-text">
+                    Some text from the card-content-text class. bla bla bla. testing length of text. asdf asdf fdsadf asdfasdfdsf asdfasdfasdfasdfasdf  asdfasdfsd asdfasdf asdfasdf
+                </p>
+            </div>
             <!-- CARD MEMBERS - Her legger vi inn medlemmer.  -->
             <div class="card-members superGrid">
                 <div class="person">PJ</div>
@@ -68,11 +73,27 @@
                 <!-- COLUMN HEADER -->
                 <div class="column-header">
                     <h1 class="column-header-text">Column Header</h1>
-                    <button class="column-header-btn">Edit</button>
+                    <button class="column-header-btn"><i class="fas fa-bars"></i></button>
                 </div>
                 <!-- COLUMN HEADER END -->
 
                 <!-- !!!!! PUT NEW CARD HERE !!!!!!! -->
+                <!-- CARD - Dette er kortet med oppgaver -->
+        <article class="card-project">
+            <div class="card-header">
+                    <h3 class="card-title">Card Title</h3>
+                    <button class="card-title-button"><i class="fas fa-ellipsis-h"></i></button>
+            </div>
+            <div class="card-content">
+                <p class="card-content-text">Card Content</p>
+            </div>
+            <!-- CARD MEMBERS - Her legger vi inn medlemmer.  -->
+            <div class="card-members superGrid">
+                <div class="person">PJ</div>
+                <div class="person">DJ</div>
+            </div>
+        </article>
+        <!-- CARD END -->
                 
         </section>
         <!-- COLUMN 2 END -->

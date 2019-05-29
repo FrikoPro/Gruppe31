@@ -1,4 +1,20 @@
+function openCardEdit(event){
+let editCardsWindow = document.getElementById("editTaskWindow");
+let buttonElement = document.getElementById("button");
+    
+    editCardsWindow.style.display = "inline";
+    editCardsWindow.style.opacity = "0.87";
+    
+    buttonElement.addEventListener("click", function(){
+    
+    editCardsWindow.style.opacity = "0";
+    editCardsWindow.style.display ="none";
+        
+    });
 
+console.log("click on" + event.target.id);
+      
+}
 //Pusher en ny dropZone inn i arrayet DropZones[] og legger det up på siden.
 function AddZone(){
     
@@ -133,7 +149,7 @@ function updateCardsToDOM(card){
     createCard.id = card.name;
     createCard.draggable = true;
     createCard.ondragstart = dragstart_handler;
-    //createCard.onclick = openCardEdit;         // = en func som skal kjøres når man trykker på kortet                   
+    createCard.onclick = openCardEdit;                          
     
 }
 
@@ -164,23 +180,3 @@ addZoneBtn.addEventListener("click", AddZone);
 
 
 
-/*
-function openCardEdit(event){
-let editCardsWindow = document.getElementById("editTaskWindow");
-let buttonElement = document.getElementById("button");
-    
-    editCardsWindow.style.display = "inline";
-    editCardsWindow.style.opacity = "0.87";
-    
-    buttonElement.addEventListener("click", function(){
-    
-    editCardsWindow.style.opacity = "0";
-    editCardsWindow.style.display ="none";
-        
-    });
-
-console.log("click on" + event.target.id);
-      
-}
-
-*/

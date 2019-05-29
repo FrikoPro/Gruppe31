@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-// project.js
-// Javascript for the project page
-=======
-=======
->>>>>>> FredrikHBranch
 function openCardEdit(event){
 let editCardsWindow = document.getElementById("editTaskWindow");
 let buttonElement = document.getElementById("button");
@@ -187,7 +180,3 @@ addZoneBtn.addEventListener("click", AddZone);
 
 
 
-<<<<<<< HEAD
->>>>>>> FredrikHBranch
-=======
->>>>>>> FredrikHBranch

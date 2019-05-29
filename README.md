@@ -1,10 +1,10 @@
 # GRUPPE 31 - 2019
 #### Members
--
--
--
--
--
+- Fredrik Jansen
+- Fredrik Holanger
+- Benjamin Opsal
+- Jonas Say
+- Sindre Fromreide Bore
 ___
 ## Project Description
 Kanban'ish WebApp

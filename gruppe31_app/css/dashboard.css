@@ -106,16 +106,16 @@ a{
 
 /* div project status */
 
-.divProjectStatus {
-    width: 100vw;
-    height: 300px;
-    justify-content: center;
-}
-
 #containerProjectStatus {
     position: relative;
     top: 200px;
     left: -280px;
+}
+
+.divProjectStatus {
+    width: 100vw;
+    height: 300px;
+    justify-content: center;
 }
 
 #divOngoingProjects {

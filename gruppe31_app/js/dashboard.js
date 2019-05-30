@@ -1,27 +1,32 @@
 // dashboard.js
 // Javascript for the dashboard
 
-// users array
+// users array of the user icon in the top right corner
 var users = document.getElementsByClassName("users");
 
-// grabbing all the available cards
+// grabbing all the available project cards
 var cards = document.getElementsByClassName("card");
+
+// The div elements where the project can be placed
+var completedProject = document.getElementById("divCompletedProjects");
+var ongoingProject = document.getElementById("divOngoingProjects");
 
 // makes the elements draggable
 for (var i=0; i<users.length; i++) {
     users[i].setAttribute("draggable", true);
 }
 
-// creates a list of the users id.
-var cardList = [];
-
-// pushing userId into userList
+//--* GLOBAL variables *--
 
 // references to the ID of card and user
 var cardId;
 var userId;
 
+// completedProject ID
+var completedProjectId;
 
+// ongoingProject ID
+var ongoingProjectId;
 
 
 // putting id's on the users
@@ -31,6 +36,7 @@ for(var i =0; i<users.length; i++){
         userId = e.target.id;
     });
 }
+
 
 let newProjectBtn = document.getElementById("btnCreateCard");
 let ongoingProjects = document.getElementById("divOngoingProjects");
@@ -44,13 +50,12 @@ function AddProject(){
         name: prompt("name"),
         info: prompt("info")
     }
-    console.log(projects.length);
     projects.push(newProjectObj);
     
     RenderProject(projects[projects.length-1]);
 }
 
-
+// function thats runs when creating project from the "create" button
 function RenderProject(project){
     var createArticle = document.createElement("ARTICLE");
     var createDiv = document.createElement("DIV");
@@ -58,6 +63,10 @@ function RenderProject(project){
     var createP = document.createElement("P");
     var createBtn = document.createElement("button");
     var createLink = document.createElement("a");
+    
+    
+    createArticle.style.width = "278px";
+    createArticle.style.float = "left";
     
     createArticle.className = "cm-card cm-shadow-wb";
     createDiv.className = "text";
@@ -76,16 +85,18 @@ function RenderProject(project){
     createDiv.appendChild(createBtn);
     createBtn.appendChild(createLink);
     
+    var cardList = [];
     
     createArticle.addEventListener("drop", e => {
         console.log("DROP", e);
         if (!cardList.includes(userId)) {
             cardList.push(userId);
-            var user = document.getElementById(userId);
-            var card = document.getElementById(cardId);
-            var cln = user.cloneNode(true);
+            let user = document.getElementById(userId);
+            let card = document.getElementById(cardId);
+            let cln = user.cloneNode(true);
             card.appendChild(cln);
-        } else {alert("already in list")};
+        }
+        else {alert("already in list")};
     });
     
     createArticle.addEventListener("dragover", e => {
@@ -95,5 +106,38 @@ function RenderProject(project){
     });
     
     createLink.setAttribute("href", "project.html");
-    console.log(createBtn);
+    
+    createArticle.setAttribute("draggable", true);
+    
+    createArticle.addEventListener("dragstart", e => {
+        console.log("dragstart", e);
+        cardId = e.target.id
+    });
 }
+
+// Event listeners for the projectStatus div
+
+completedProject.addEventListener("dragover", e => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+    completedProjectId = e.target.id;
+});
+
+completedProject.addEventListener("drop", e => {
+    let project = document.getElementById(cardId);
+    let completedProject = document.getElementById(completedProjectId);
+    completedProject.appendChild(project);
+    
+});
+
+ongoingProject.addEventListener("dragover", e => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+    ongoingProjectId = e.target.id;
+});
+
+ongoingProject.addEventListener("drop", e=> {
+    let project = document.getElementById(cardId);
+    let ongoingProject = document.getElementById(ongoingProjectId);
+    ongoingProject.appendChild(project);
+});

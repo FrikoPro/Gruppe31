@@ -24,6 +24,9 @@
     border: 1px solid #ddd;
     box-shadow: 2px 2px 6px rgba(209,209,209,1);
 }
+.cm-shadow-l{
+    box-shadow: 5px 0px 6px rgba(209,209,209,1);
+}
 
 /* common-button */
 .cm-button{

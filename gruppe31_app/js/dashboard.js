@@ -33,7 +33,7 @@ for(var i =0; i<users.length; i++){
 }
 
 let newProjectBtn = document.getElementById("btnCreateCard");
-let mainElement = document.getElementById("main");
+let ongoingProjects = document.getElementById("divOngoingProjects");
 
 newProjectBtn.addEventListener("click", AddProject);
 
@@ -69,7 +69,7 @@ function RenderProject(project){
     createP.innerText = project.info;
     createLink.innerText = "Enter";
     
-    mainElement.appendChild(createArticle);
+    ongoingProjects.appendChild(createArticle);
     createArticle.appendChild(createDiv);
     createDiv.appendChild(createH3);
     createDiv.appendChild(createP);

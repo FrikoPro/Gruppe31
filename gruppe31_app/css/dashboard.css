@@ -103,3 +103,29 @@ a{
 .text{
     padding: 20px;
 }
+
+/* div project status */
+
+.divProjectStatus {
+    width: 100vw;
+    height: 300px;
+    justify-content: center;
+}
+
+#containerProjectStatus {
+    position: relative;
+    top: 200px;
+    left: -280px;
+}
+
+#divOngoingProjects {
+    top: 200px;
+}
+
+#divCompletedProjects {
+    top: 500px;
+}
+
+.textStatus {
+    margin: 10px 10px;
+}

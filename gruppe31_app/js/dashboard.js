@@ -59,9 +59,9 @@ function RenderProject(project){
     var createBtn = document.createElement("button");
     var createLink = document.createElement("a");
     
-    createArticle.className = "card";
+    createArticle.className = "cm-card cm-shadow-wb";
     createDiv.className = "text";
-    createBtn.className = "button";
+    createBtn.className = "cm-button";
     
     createArticle.id = project.name;
     

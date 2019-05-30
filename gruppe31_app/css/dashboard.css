@@ -83,15 +83,15 @@ a{
 }
 
 .newCard{
-    margin: 20px;
+    /* margin: 20px;
     border-radius: 25px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
-.grid > article{
+/* .grid > article{
     border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px 0 rgba(209, 209, 209, 1);
+    box-shadow: 2px 2px 6px 0 rgba(209, 209, 209, 1); */
 }
 .grid > #image{
     max-width: 100%;

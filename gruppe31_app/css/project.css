@@ -45,6 +45,7 @@ a{
 /* MAIN CONTENT */
 .container{
     margin-top: 20px;
+    margin-left: 110px;
 }
 .grid{
     display: grid;
@@ -64,6 +65,8 @@ a{
     border-color: #ccc;
     min-height: 15em;
     padding-bottom: 50px;
+
+    
 }
 .column-header{
     display: grid;

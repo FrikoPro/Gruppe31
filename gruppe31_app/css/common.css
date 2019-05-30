@@ -27,6 +27,9 @@
 .cm-shadow-l{
     box-shadow: 5px 0px 6px rgba(209,209,209,1);
 }
+.cm-shadow-c{
+    box-shadow: 0px 0px 2px rgba(209,209,209,1);
+}
 
 /* common-button */
 .cm-button{
@@ -42,5 +45,59 @@
 /* Header Logo */
 .cm-logo{
     height: 40px;
+}
+
+/* ICONS */
+.cm-icon{
+    color: #FF6600;
+    font-size: 20px;
+    transition: all 0.1s ease-in-out;
+}
+
+
+/* SIDENAVIGATION */
+.sidenav{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100px;
+    position: fixed;
+    transition: all 1s;
+}
+
+.sidenav-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    list-style-type: none;
+    padding: 0;
+}
+.sidenav-list-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    margin: 20px;
+    text-align: center;
+}
+
+.icon-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 60px;
+    border-radius: 5px;
+    border: 2px solid rgba(209, 209, 209, 0.4);
+    transition: all 0.5s;
+}
+.icon-container:hover{
+    border: 2px solid #FF6600;
+}
+.icon-container:hover .cm-icon{
+    font-size: 30px;
 }
 

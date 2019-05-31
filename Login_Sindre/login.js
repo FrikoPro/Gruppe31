@@ -42,8 +42,18 @@ loginBtnElement.addEventListener("click", function(){
     
     
     if(credentialCheck){
-        usernameInputElement.value = "Success";
-        passwordInputElement.value = "";
+        
+        var grabUserObject = users.find(o => o.name === usernameInputElement.value);
+        
+        if(grabUserObject){ currentUser = grabUserObject}
+        currentUserString = currentUser.name + "[?]" + currentUser.firstName + "[?]" + currentUser.lastName + "[?]" + currentUser.password;
+        
+        let newDate = new Date(9999, 12);
+        let d = newDate.toUTCString;
+        
+        document.cookie = "currentUser=" + currentUserString + ";expires=" + d + ";";
+        
+        location.href = "dashboard.html";  
     } else {
         usernameInputElement.value = "Try again";
         passwordInputElement.value = "";
@@ -57,7 +67,7 @@ registerBtnElement.addEventListener("click", function(){
     //Compares the username input to usernames that are already in the users array
     let isUserTaken = users.find(o => o.name === registerUsernameInputElement.value);
     
-    //Here we check if the password is the same in both input fields, that both username and password are within the character limit, and that the username is not already in use. The name inputs can't be empty.
+    //Checks if the password is the same in both input fields, that both username and password are within the character limit, and that the username is not already in use. The name inputs can't be empty.
     if(registerPasswordInputElement.value === confirmPasswordInputElement.value 
        && registerPasswordInputElement.value.length >= 6 
        && registerPasswordInputElement.value.length <= 18 
@@ -66,10 +76,10 @@ registerBtnElement.addEventListener("click", function(){
        && registerLastNameInputElement.value !== ""
        && !isUserTaken){
         users[users.length] = 
-            {name: registerUsernameInputElement.value, 
-             firstName: registerFirstNameInputElement.value,
-             lastName: registerLastNameInputElement.value,
-             password: registerPasswordInputElement.value}
+            {name: escape(registerUsernameInputElement.value), 
+             firstName: escape(registerFirstNameInputElement.value),
+             lastName: escape(registerLastNameInputElement.value),
+             password: escape(registerPasswordInputElement.value)}
         
         registerUsernameInputElement.value = "User created";
         convertUsersToCookie();
@@ -127,10 +137,11 @@ convertUsersToCookie();
 
 //Converting cookie to users array
 let users2 = [];
+
 //Slices off the expiry date, leaving only the array contents
 let cookieToUsersAsStrings = getCookie("usersArray").slice(0, -37).split("[!]");
 
 for(let i=0; i<cookieToUsersAsStrings.length; i++){
     let properties = cookieToUsersAsStrings[i].split("[?]");
-    users2[i] = {name: properties[0], firstName: properties[1], lastName: properties[2], password: properties[3]};
+    users2[i] = {name: unescape(properties[0]), firstName: unescape(properties[1]), lastName: unescape(properties[2]), password: unescape(properties[3])};
 }

@@ -40,6 +40,49 @@ li{
 
 }
 
+.userDiv{
+    display: grid;
+    justify-content: right;
+    align-content: center;
+    grid-auto-flow: column;
+    grid-gap: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.users{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 2px solid red;
+    float: right;
+}
+
+.textUser {
+    text-align: center;
+    position: relative;
+    bottom: 5px;
+}
+
+#user1 {
+    background-color: blueviolet;
+}
+
+#user2 {
+    background-color: chartreuse;
+}
+
+#user3 {
+    background-color: crimson;
+}
+
+
+#divOngoingProjects {
+    top: 200px;
+}
+
+/* div project status */
+
 #containerProjectStatus {
     position: relative;
     top: 200px;
@@ -54,4 +97,12 @@ li{
 
 #divOngoingProjects {
     top: 200px;
+}
+
+#divCompletedProjects {
+    top: 500px;
+}
+
+.textStatus {
+    margin: 10px 10px;
 }

@@ -42,11 +42,22 @@ INDEX:
 }
 .cm-card-3{
     display: block;
-    margin: 10px;
+    margin: 20px;
+    min-height: 150px;
     border-radius: 15px;
     background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 6px rgba(209, 209, 209, 1);
+}
+.cm-card-3-header{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+}
+.cm-card-content{
+    margin: 5px;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 /* SHADOW */
@@ -118,11 +129,25 @@ INDEX:
 .cm-button-secondary:hover{
     font-weight: bold;
 }
+.cm-card-title-btn{
+    background-color: #ff6600;
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    width: 50px;
+    border-radius: 0 10px 0 10px;
+}
 
 /* ICONS */
 .cm-icon{
     color: #ff6600;
     font-size: 20px;
+    transition: all 0.1s ease-in-out;
+}
+.cm-icon-header{
+    color: #fff;
+    font-size: 15px;
     transition: all 0.1s ease-in-out;
 }
 
@@ -135,6 +160,26 @@ INDEX:
 }
 .cm-text-p1{
     padding-left: 10px;
+}
+
+/* PROGRESS BAR */
+.cm-progress-container{
+    display: flex;
+    align-content: center;
+    margin: 10px;
+    height: 20px;
+    border: 1px solid rgba(209, 209, 209, 1);
+    border-radius: 10px;
+}
+.cm-progress{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    background-color:#081738;
+    width: 20%;
 }
 
 /* PROJECT SPECIFIC CLASSES */

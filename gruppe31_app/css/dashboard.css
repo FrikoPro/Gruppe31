@@ -17,10 +17,10 @@ li{
 .container{
     display: grid;
     grid-template-columns: 100px 1fr 300px;
-    grid-template-rows: 50px 1fr 50px;
+    grid-template-rows: 1fr 1fr 50px;
     grid-template-areas: 
     "side-navigation main activity-area"
-    "side-navigation main activity-area"
+    "side-navigation secondary-content activity-area"
     "footer footer footer";
     height: 100vh;
 
@@ -35,6 +35,18 @@ li{
     grid-gap: 20px;
     align-items: flex-start;
     height: 100vh;
+}
+.secondary-content{
+    grid-area: secondary-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-rows: 1fr;
+    margin: 10px;
+    border-radius: 25px;
+    border-style: dotted;
+    border-color: #ccc;
+    min-height: 15em;
+    padding-bottom: 50px;
 }
 
 .userDiv{

@@ -39,3 +39,19 @@ li{
     height: 100vh;
 
 }
+
+#containerProjectStatus {
+    position: relative;
+    top: 200px;
+    left: -280px;
+}
+
+.divProjectStatus {
+    width: 100vw;
+    height: 300px;
+    justify-content: center;
+}
+
+#divOngoingProjects {
+    top: 200px;
+}

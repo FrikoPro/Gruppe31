@@ -7,7 +7,18 @@ var users = document.getElementsByClassName("users");
 // grabbing all the available project cards
 var cards = document.getElementsByClassName("card");
 
+// main element where the new projects will be appended.
 var main = document.getElementById("main");
+
+// where the projects will be appended when they are dragged over the button history.
+var historyProject = document.getElementById("historyProject");
+
+
+var btnHistory = document.getElementById("btnHistory");
+var sibBtnHistory = document.getElementById("sibBtnHistory");
+var btnHistoryIcon = document.getElementById("btnHistoryIcon");
+var containerHistory = document.getElementById("containerHistory");
+
 
 // makes the elements draggable
 for (var i=0; i<users.length; i++) {
@@ -20,12 +31,8 @@ for (var i=0; i<users.length; i++) {
 var cardId;
 var userId;
 
-// completedProject ID
-var completedProjectId;
-
-// ongoingProject ID
-var ongoingProjectId;
-
+// btnHistory ID
+var btnHistoryId;
 
 // putting id's on the users
 for(var i =0; i<users.length; i++){
@@ -37,7 +44,6 @@ for(var i =0; i<users.length; i++){
 
 
 let newProjectBtn = document.getElementById("btnCreateCard");
-let ongoingProjects = document.getElementById("divOngoingProjects");
 
 newProjectBtn.addEventListener("click", AddProject);
 
@@ -77,7 +83,7 @@ function RenderProject(project){
     createDiv.appendChild(createH3);
     createDiv.appendChild(createP);
     createDiv.appendChild(createBtn);
-    createBtn.appendChild(createLink);
+    createBtn.appendChild(createLink); 
     
     var cardList = [];
     
@@ -105,6 +111,22 @@ function RenderProject(project){
     
     createArticle.addEventListener("dragstart", e => {
         console.log("dragstart", e);
-        cardId = e.target.id
+        e.dataTransfer.setData("text/plain", e.target.id);
+        console.log(cardId);
     });
 }
+
+btnHistory.addEventListener("dragover", e=> {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+    console.log("dragover", e);
+});
+
+sibBtnHistory.addEventListener("drop", e=> {
+    e.preventDefault();
+    var projectData = e.dataTransfer.getData("text/plain");
+    var card = document.getElementById(projectData);
+    console.log(card);
+    historyProject.appendChild(card);
+});
+

@@ -1,9 +1,22 @@
-let users = [
-    {name: "Sindre", firstName: "Sindre", lastName: "Fromreide Bore", password: "Password123"},
-    {name: "Bengt", firstName: "Bengt", lastName: "Bengen", password: "h4x0r1337"},
-    {name: "test", firstName: "test", lastName: "test", password: "test1234"}
-];
+if(getCookie("usersArray") == ""){
+    var users = [
+        {name: "Sindre", firstName: "Sindre", lastName: "Fromreide Bore", password: "Password123"},
+        {name: "Bengt", firstName: "Bengt", lastName: "Bengen", password: "h4x0r1337"},
+        {name: "test", firstName: "test", lastName: "test", password: "test1234"}
+    ];
+} else{
+    
+    var users = [];
+    
+    let cookieToUsersAsStrings = getCookie("usersArray").slice(0, -37).split("[!]");
+    
+    for(let i=0; i<cookieToUsersAsStrings.length; i++){
+    let properties = cookieToUsersAsStrings[i].split("[?]");
+    users[i] = {name: properties[0], firstName: properties[1], lastName: properties[2], password: properties[3]};
+}
 
+    
+}
 //DOM-element variables
 let usernameInputElement = document.getElementById("usernameInput");
 let passwordInputElement = document.getElementById("passwordInput");
@@ -58,7 +71,8 @@ registerBtnElement.addEventListener("click", function(){
              lastName: registerLastNameInputElement.value,
              password: registerPasswordInputElement.value}
         
-        registerUsernameInputElement.value = "User created"
+        registerUsernameInputElement.value = "User created";
+        convertUsersToCookie();
     } else{
         registerUsernameInputElement.value = "An error occured";
     }
@@ -95,23 +109,26 @@ function getCookie(cname) {
 }
 
 //Converting users array to cookie
-let userCookie;
-let usersIndexesAsString = [];
+function convertUsersToCookie(){
+    let userCookie;
+    let usersIndexesAsString = [];
 
-for(let i=0; i<users.length; i++){
-    usersIndexesAsString[i] = users[i].name + "[?]" + users[i].firstName + "[?]" + users[i].lastName + "[?]" + users[i].password
-};
+    for(let i=0; i<users.length; i++){
+        usersIndexesAsString[i] = users[i].name + "[?]" + users[i].firstName + "[?]" + users[i].lastName + "[?]" + users[i].password
+    };
 
-let usersString = usersIndexesAsString.join("[!]");
-let newDate = new Date(9999, 12);
-let d = newDate.toUTCString();
+    let usersString = usersIndexesAsString.join("[!]");
+    let newDate = new Date(9999, 12);
+    let d = newDate.toUTCString();
 
-document.cookie = "usersArray=" + usersString + "expires=" + d;
+    document.cookie = "usersArray=" + usersString + "expires=" + d;
+}
+convertUsersToCookie();
 
 //Converting cookie to users array
-let cookieToUsersAsStrings = getCookie("usersArray").slice(0, -37).split("[!]");
-
 let users2 = [];
+//Slices off the expiry date, leaving only the array contents
+let cookieToUsersAsStrings = getCookie("usersArray").slice(0, -37).split("[!]");
 
 for(let i=0; i<cookieToUsersAsStrings.length; i++){
     let properties = cookieToUsersAsStrings[i].split("[?]");

@@ -13,7 +13,6 @@ li{
     list-style: none;
 }
 
-
 /* MAIN CONTENT */
 .container{
     display: grid;
@@ -35,7 +34,5 @@ li{
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
     align-items: flex-start;
-    overflow: scroll;
     height: 100vh;
-
 }

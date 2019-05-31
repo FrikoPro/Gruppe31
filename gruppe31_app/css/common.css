@@ -74,11 +74,49 @@ INDEX:
 .cm-button{
     background-color: #589bea;
     border: none;
-    color: #ffff;
+    color: #fff;
+    text-align: center;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: all 0.1s;
+}
+.cm-button:hover{
+    background-color: #589bea;
+    border: 1px solid #fff;
+    font-weight: bold;
+    color: #fff;
+}
+.cm-button-b{
+    background-color: #fff;
+    border: 1px solid #589bea;
+    color: #589bea;
+    text-align: center;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-transform: uppercase;
+    transition: all 0.1s ease-in-out;
+}
+.cm-button-b:hover{
+    border: 2px solid #589bea;
+    font-weight: bold;
+    font-size: 13px;
+}
+.cm-button-secondary{
+    background-color: #fff;
+    border: 1px solid #589bea;
+    color: #589bea;
     text-align: center;
     height: 30px;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 10px;
+    text-transform: uppercase;
+    transition: all 0.1s ease-in-out;
+}
+.cm-button-secondary:hover{
+    font-weight: bold;
 }
 
 /* ICONS */

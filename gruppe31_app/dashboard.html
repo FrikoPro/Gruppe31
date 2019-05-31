@@ -4,61 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/dashboard.css">
     <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/sidenavigation.css">
+    <script src="https://kit.fontawesome.com/a23c2d46ea.js"></script>
     <title>Gruppe 31 | Kanban</title>
 </head>
 <body>
-    
-    <!-- TOP -->
 
-    <!-- Header -->
-   <header class="header">
-       <nav class="nav">
-           <div class="navbar">
-                <div id="logo">
-                   <img class="cm-logo" src="./img/kodiljeLogo.png" alt="Logo">
-               </div>
-               <div class="userDiv">
-                    <div id="user1" class="users"><h3 class="textUser">FJ</h3></div>
-                    <div id="user2" class="users"><h3 class="textUser">MJ</h3></div>
-                    <div id="user3" class="users"><h3 class="textUser">WF</h3></div>
-               </div>
-           </div>
-       </nav>
-   </header>
-
-   <aside class="sidenav">
-       <ul class="sidenav-list">
-            <li class="sidenav-list-item"><div class="icon-container"><i class="fas fa-plus cm-icon"></i></div></li>
-           <li class="sidenav-list-item"><div class="icon-container"><i class="fas fa-radiation cm-icon"></i></div></li>
-           <li class="sidenav-list-item"><div class="icon-container"><i class="fas fa-sign-out-alt cm-icon"></i></div></li>
-       </ul>
-   </aside>
-
-
-   <!-- Grid Container -->
-   <div class="container">
-       <main class="grid" id="main">
-        
-        <!-- CARD START -  -->
-        <article class="newCard cm-card cm-shadow-wb">
-            <div class="text">
-                <h3>Add Project</h3>
-                <p>Create a new project here!</p>
-                <button class="cm-button" id="btnCreateCard">Create</button>
+    <!-- HEADER -->
+    <header class="header cm-border">
+        <nav class="nav">
+            <div class="navbar">
+                <div class="logo">
+                    <img class="cm-logo" src="./img/kodiljeLogo.png" alt="">
+                </div>
+                <div class="navbar-links">
+                    <li>Link1</li>
+                    <li>Link2</li>
+                </div>
             </div>
-        </article>
-        <!-- CARD END -->
+        </nav>
+    </header>
 
+    <!-- GRID -->
+    <div class="container">
+        <aside class="side-navigation">
+            <ul class="sidenav-list">
 
+                <li class="sidenav-list-item"><div class="icon-container"><i class="fas fa-plus cm-icon"></i></div></li>
+                <li class="sidenav-list-item"><div class="icon-container"><i class="fas fa-radiation cm-icon"></i></div></li>
+                <li class="sidenav-list-item"><div class="icon-container"><i class="fas fa-sign-out-alt cm-icon"></i></div></li>
 
-       </main>
-   </div>
+            </ul>
+        </aside>
+        <main class="main">
 
-   
-<script src="js/dashboard.js" type="text/javascript"></script>  
+            <!-- CARD START -->
+            <article class="cm-card cm-shadow-wb">
+                <div class="cm-text">
+                    <h3>Add Project</h3>
+                    <p>Create a new project here!</p>
+                    <button class="cm-button">Create</button>
+                </div>
+            </article>
+            <!-- CARD END -->
+
+        </main>
+        <aside class="activity-area">
+            <div class="activity-area-container cm-shadow-c">
+                <h3 class="activity-header">Activity</h3>
+                <div class="cm-text-light cm-card-2 cm-shadow-c">
+                    <h3 class="cm-text-p1">Name</h3>
+                    <p class="cm-text-p1">Did this</p>
+                    <p class="activity-time cm-text-p1">2019-30-14</p>
+                </div>
+
+            </div>
+        </aside>
+        <footer class="footer">
+            <div class="footer-content">
+                <p>Gruppe 31</p>
+            </div>
+        </footer>
+    </div>
+    
 </body>
 </html>

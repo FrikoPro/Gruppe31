@@ -1,16 +1,13 @@
 // dashboard.js
 // Javascript for the dashboard
 
-
 // users array of the user icon in the top right corner
 var users = document.getElementsByClassName("users");
 
 // grabbing all the available project cards
 var cards = document.getElementsByClassName("card");
 
-// The div elements where the project can be placed
-var completedProject = document.getElementById("divCompletedProjects");
-var ongoingProject = document.getElementById("divOngoingProjects");
+var main = document.getElementById("main");
 
 // makes the elements draggable
 for (var i=0; i<users.length; i++) {
@@ -65,12 +62,8 @@ function RenderProject(project){
     var createBtn = document.createElement("button");
     var createLink = document.createElement("a");
     
-    
-    createArticle.style.width = "278px";
-    createArticle.style.float = "left";
-    
     createArticle.className = "cm-card cm-shadow-wb";
-    createDiv.className = "text";
+    createDiv.className = "cm-text";
     createBtn.className = "cm-button";
     
     createArticle.id = project.name;
@@ -79,7 +72,7 @@ function RenderProject(project){
     createP.innerText = project.info;
     createLink.innerText = "Enter";
     
-    ongoingProjects.appendChild(createArticle);
+    main.appendChild(createArticle);
     createArticle.appendChild(createDiv);
     createDiv.appendChild(createH3);
     createDiv.appendChild(createP);
@@ -115,30 +108,3 @@ function RenderProject(project){
         cardId = e.target.id
     });
 }
-
-// Event listeners for the projectStatus div
-
-completedProject.addEventListener("dragover", e => {
-    e.preventDefault();
-    e.dataTransfer.dropEffect = "move";
-    completedProjectId = e.target.id;
-});
-
-completedProject.addEventListener("drop", e => {
-    let project = document.getElementById(cardId);
-    let completedProject = document.getElementById(completedProjectId);
-    completedProject.appendChild(project);
-    
-});
-
-ongoingProject.addEventListener("dragover", e => {
-    e.preventDefault();
-    e.dataTransfer.dropEffect = "move";
-    ongoingProjectId = e.target.id;
-});
-
-ongoingProject.addEventListener("drop", e=> {
-    let project = document.getElementById(cardId);
-    let ongoingProject = document.getElementById(ongoingProjectId);
-    ongoingProject.appendChild(project);
-});

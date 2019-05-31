@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-gap: 20px;
-    align-items: stretch;
+    align-items: flex-start;
 }
 
 /* CARD */
@@ -92,7 +92,7 @@
     width: 60px;
     border-radius: 5px;
     border: 2px solid rgba(209, 209, 209, 0.4);
-    transition: all 0.5s;
+    transition: all 0.1s;
 }
 .icon-container:hover{
     border: 2px solid #FF6600;

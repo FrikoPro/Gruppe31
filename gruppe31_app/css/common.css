@@ -188,6 +188,8 @@ INDEX:
 
 /* FOOTER */
 .footer{
+    grid-area: footer;
+    background-color: #081738;
     display: flex;
     align-content: center;
     justify-content: center;

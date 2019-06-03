@@ -19,6 +19,7 @@ var sibBtnHistory = document.getElementById("sibBtnHistory");
 var btnHistoryIcon = document.getElementById("btnHistoryIcon");
 var containerHistory = document.getElementById("containerHistory");
 
+var cardDisposal = document.getElementById("cardDisposal");
 
 // makes the elements draggable
 for (var i=0; i<users.length; i++) {
@@ -116,6 +117,7 @@ function RenderProject(project){
     });
 }
 
+// Adding projects to history
 btnHistory.addEventListener("dragover", e=> {
     e.preventDefault();
     e.dataTransfer.dropEffect = "move";
@@ -129,4 +131,15 @@ sibBtnHistory.addEventListener("drop", e=> {
     console.log(card);
     historyProject.appendChild(card);
 });
+
+// remove projects
+cardDisposal.addEventListener("dragover", e=> {
+    e.preventDefault();
+})
+
+cardDisposal.addEventListener("drop", e=> {
+    var projectId = e.dataTransfer.getData("text/plain");
+    var card = document.getElementById(projectId);
+    card.parentNode.removeChild(card);
+})
 

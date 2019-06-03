@@ -239,6 +239,9 @@ INDEX:
     border-radius: 25px;
     border: 1px solid rgba(209, 209, 209, 1);
 }
+.activity-item{
+    margin-top: 5px;
+}
 
 /* FOOTER */
 .footer{

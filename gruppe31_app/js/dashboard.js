@@ -112,7 +112,6 @@ function RenderProject(project){
     createArticle.addEventListener("dragstart", e => {
         console.log("dragstart", e);
         e.dataTransfer.setData("text/plain", e.target.id);
-        console.log(cardId);
     });
 }
 

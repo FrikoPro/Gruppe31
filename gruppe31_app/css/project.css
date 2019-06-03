@@ -15,6 +15,7 @@ li{
 }
 
 /* MAIN CONTENT */
+
 .container{
     display: grid;
     grid-template-columns: 100px 1fr 300px;
@@ -143,7 +144,7 @@ overflow: visible;
 
 #cardEditBtn{
   position: absolute; 
-  bottom: 20px; 
+  bottom: 18px; 
   width: 30%; 
   height: 40px; 
   border: 1px solid #589bea;
@@ -188,9 +189,9 @@ margin-top: 20px;
 
 #des{
   position: absolute; 
-  bottom: 17%; 
+  bottom: 40%; 
   width: 70%; 
-  height: 65%; 
+  height: 40%; 
   border: 1px solid black;
   left:0;
   right:0;
@@ -269,3 +270,49 @@ margin-top: 20px;
 .icon-container:hover .tooltip {
   visibility: visible;
 }
+
+/* Fredrik J edit */
+#userDiv {
+    position: absolute;
+    width: 50px;
+    height: 200px;
+    left: 328px;
+    top: 0;
+}
+
+.userDiv{
+    display: grid;
+    justify-content: right;
+    align-content: center;
+    grid-auto-flow: column;
+    grid-gap: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.users{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    border: 2px solid red;
+    margin: 3px;
+}
+
+.textUser {
+    text-align: center;
+    position: relative;
+    bottom: 5px;
+}
+
+#user1 {
+    background-color: blueviolet;
+}
+
+#user2 {
+    background-color: chartreuse;
+}
+
+#user3 {
+    background-color: crimson;
+}
+

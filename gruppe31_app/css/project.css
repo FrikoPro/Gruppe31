@@ -59,13 +59,14 @@ li{
     border-radius: 10px;
     box-shadow: 2px 2px 6px rgba(209, 209, 209, 1);
     text-align: center;
-    background-color: white;
 }
 .column-header-text{
     margin-left: 20px;
     line-height: 18px;
     font-size: 18px;
     color: #777;
+    word-wrap: break-word;
+    max-width: 230px;
 }
 .column-header-btn{
     background-color: #ff6600;

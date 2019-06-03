@@ -13,6 +13,22 @@ INDEX:
 
 */
 
+/* ACTIVITY SCROLL */
+::-webkit-scrollbar{
+    width: 5px;
+    border-radius: 2.5px;
+    visibility: hidden;
+
+}
+::-webkit-scrollbar-track{
+    background:white;
+    visibility: hidden;
+}
+::-webkit-scrollbar-thumb{
+    background: #888;
+    visibility: hidden;
+}
+
 /* GRID (layout) */
 .cm-grid{
     display: grid;

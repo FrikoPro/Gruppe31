@@ -10,17 +10,20 @@
     <title>Gruppe 31 | Kanban</title>
 </head>
 <body>
+    
 
+    
     <!-- HEADER -->
     <header class="header cm-border">
         <nav class="nav">
             <div class="navbar">
                 <div class="logo">
-                    <img class="cm-logo" src="./img/kodiljeLogo.png" alt="">
+                        <a href="./dashboard.html"><img class="cm-logo" src="./img/kodiljeLogo.png" alt=""></a>
                 </div>
                 <div class="navbar-links">
-                    <li>Link1</li>
-                    <li>Link2</li>
+                    <div id="user1" class="users"><h3 class="textUser">FJ</h3></div>
+                    <div id="user2" class="users"><h3 class="textUser">MJ</h3></div>
+                    <div id="user3" class="users"><h3 class="textUser">WF</h3></div>
                 </div>
             </div>
         </nav>
@@ -29,95 +32,33 @@
     <!-- GRID -->
     <div class="container">
 
-        <!-- SIDE NAVIGATION LEFT -->
+        <!-- SIDE NAVIGATION LEFT -->
         <aside class="side-navigation">
             <ul class="sidenav-list">
 
-                <li class="sidenav-list-item"><div class="icon-container"><i class="fas fa-plus cm-icon"></i></div></li>
-                <li class="sidenav-list-item"><div class="icon-container"><i class="fas fa-radiation cm-icon"></i></div></li>
+                <li class="sidenav-list-item"><div id="addRow" class="icon-container"><i class="fas fa-plus cm-icon"></i>
+                    <span class="tooltip">Add Column</span>
+                    </div></li>
+                <li class="sidenav-list-item"><div id="addCard" class="icon-container"><i class="fas fa-plus cm-icon"></i>
+                    <span class="tooltip">Add Card</span>
+                    </div></li>
+                <li class="sidenav-list-item"><div id="cardDisposal" class="icon-container"><i class="fas fa-radiation cm-icon"></i>
+                    <span class="tooltip">Drop Cards Here to Delete</span>
+                    </div></li>
                 <li class="sidenav-list-item"><div class="icon-container"><i class="fas fa-sign-out-alt cm-icon"></i></div></li>
 
             </ul>
         </aside>
-        <main class="main">
+        <main id="main" class="main">
 
-
-           <!-- COLUMN START -->
-           <section class="column">
-               <div class="column-header">
-                   <h1 class="column-header-text">Column Header</h1>
-                   <button class="column-header-btn"><i class="fas fa-bars"></i></button>
-               </div>
-
-               <!-- CARD START -->
-               <article class="card-project">
-                   <div class="card-header">
-                       <h3 class="card-header">Card Header</h3>
-                       <button class="card-title-button"><i class="fas fa-ellipsis-h"></i></button>
-                   </div>
-                   <div class="card-content">Card Contentasdfasdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf </div>
-                   <div class="card-members cm-grid-light">
-                       <div class="person">FH</div>
-                   </div>
-               </article>
-               <!-- CARD END -->
-               <!-- CARD START -->
-               <article class="card-project">
-                    <div class="card-header">
-                        <h3 class="card-header">Card Header</h3>
-                        <button class="card-title-button"><i class="fas fa-ellipsis-h"></i></button>
-                    </div>
-                    <div class="card-content">Card Contentasdfasdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf </div>
-                    <div class="card-members cm-grid-light">
-                        <div class="person">FH</div>
-                    </div>
-                </article>
-                <!-- CARD END -->
-                <!-- CARD START -->
-               <article class="card-project">
-                    <div class="card-header">
-                        <h3 class="card-header">Card Header</h3>
-                        <button class="card-title-button"><i class="fas fa-ellipsis-h"></i></button>
-                    </div>
-                    <div class="card-content">Card Contentasdfasdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf </div>
-                    <div class="card-members cm-grid-light">
-                        <div class="person">FH</div>
-                    </div>
-                </article>
-                <!-- CARD END -->
-
-           </section>
-           <!-- COLUMN END -->
-
-           <!-- COLUMN START -->
-           <section class="column">
-                <div class="column-header">
-                    <h1 class="column-header-text">Column Header</h1>
-                    <button class="column-header-btn"><i class="fas fa-bars"></i></button>
-                </div>
- 
-                <!-- CARD START -->
-                <article class="card-project">
-                    <div class="card-header">
-                        <h3 class="card-header">Card Header</h3>
-                        <button class="card-title-button"><i class="fas fa-ellipsis-h"></i></button>
-                    </div>
-                    <div class="card-content">Card Contentasdfasdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf </div>
-                    <div class="card-members cm-grid-light">
-                        <div class="person">FH</div>
-                    </div>
-                </article>
-                <!-- CARD END -->
-                
- 
-            </section>
-            <!-- COLUMN END -->
+               
+         
 
         </main>
 
-        <!-- ACTIVITY AREA RIGHT -->
-        <aside class="activity-area">
-            <div class="activity-area-container cm-shadow-c">
+        <!-- ACTIVITY AREA RIGHT -->
+        <aside  class="activity-area">
+            <div id="activityContainer" class="activity-area-container cm-shadow-c">
                 <h3 class="activity-header">Activity</h3>
                 <div class="cm-text-light cm-card-2 cm-shadow-c">
                     <h3 class="cm-text-p1">Name</h3>
@@ -128,6 +69,12 @@
             </div>
         </aside>
     </div>
+   <!-- <script src="js/cookies.js"></script> -->
+    <script src="./js/fProject.js"></script>
     <script src="./js/project.js"></script>
 </body>
 </html>
+
+
+
+

@@ -13,6 +13,8 @@ var main = document.getElementById("main");
 // where the projects will be appended when they are dragged over the button history.
 var historyProject = document.getElementById("historyProject");
 
+// activity container
+var ActivityEl = document.getElementById("activityContainer");
 
 var btnHistory = document.getElementById("btnHistory");
 var sibBtnHistory = document.getElementById("sibBtnHistory");
@@ -35,6 +37,9 @@ var userId;
 // btnHistory ID
 var btnHistoryId;
 
+// array for alle Acitivity loggene
+const activityLogEntries = [];
+
 // putting id's on the users
 for(var i =0; i<users.length; i++){
     users[i].addEventListener("dragstart", e => {
@@ -49,13 +54,18 @@ let newProjectBtn = document.getElementById("btnCreateCard");
 newProjectBtn.addEventListener("click", AddProject);
 
 var projects =[];
+var counter = 0;
 
 function AddProject(){
     let newProjectObj = {
         name: prompt("name"),
-        info: prompt("info")
+        info: prompt("info"),
+        elementId: "",
+        users: []
     }
     projects.push(newProjectObj);
+    PrintOutActivityLog("cardAdded", newProjectObj.name);
+    
     
     RenderProject(projects[projects.length-1]);
 }
@@ -73,7 +83,9 @@ function RenderProject(project){
     createDiv.className = "cm-text";
     createBtn.className = "cm-button";
     
-    createArticle.id = project.name;
+    createArticle.id = "project" + counter;
+    project.elementId = createArticle.id;
+    counter++;
     
     createH3.innerText = project.name;
     createP.innerText = project.info;
@@ -89,15 +101,18 @@ function RenderProject(project){
     var cardList = [];
     
     createArticle.addEventListener("drop", e => {
-        console.log("DROP", e);
-        if (!cardList.includes(userId)) {
-            cardList.push(userId);
-            let user = document.getElementById(userId);
-            let card = document.getElementById(cardId);
-            let cln = user.cloneNode(true);
-            card.appendChild(cln);
+        console.log(projects);
+        for(var i=0; i<projects.length; i++) {
+            if (!projects[i].users.includes(userId)) {
+                projects[i].users.push(userId);
+                let user = document.getElementById(userId);
+                let card = document.getElementById(cardId);
+                let cln = user.cloneNode(true);
+                card.appendChild(cln);
+                userId = "";
+                break;
+            }
         }
-        else {alert("already in list")};
     });
     
     createArticle.addEventListener("dragover", e => {
@@ -121,7 +136,6 @@ function RenderProject(project){
 btnHistory.addEventListener("dragover", e=> {
     e.preventDefault();
     e.dataTransfer.dropEffect = "move";
-    console.log("dragover", e);
 });
 
 sibBtnHistory.addEventListener("drop", e=> {
@@ -135,11 +149,79 @@ sibBtnHistory.addEventListener("drop", e=> {
 // remove projects
 cardDisposal.addEventListener("dragover", e=> {
     e.preventDefault();
-})
+});
 
 cardDisposal.addEventListener("drop", e=> {
-    var projectId = e.dataTransfer.getData("text/plain");
-    var card = document.getElementById(projectId);
-    card.parentNode.removeChild(card);
-})
+    var id = e.dataTransfer.getData("text/plain");
+    var element = document.getElementById(id);
+    for(var i=0; i<projects.length; i++) {
+        if(projects[i].elementId.includes(id)) {
+            PrintOutActivityLog("cardRemoved", id);
+            element.parentNode.removeChild(element);
+            projects.splice(i, 1);
+        } else {
+            element.parentNode.removeChild(element);
+        }
+    }
+});
 
+// logging events activity log
+function PrintOutActivityLog(handling, item1, item2){
+      
+    let activityText ="";
+    let currentTime = new Date();
+    let date = currentTime.getFullYear() + "-" + (currentTime.getMonth()+1) + "-" +currentTime.getDate();
+    let time = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+    let dateTime = date + " " +  time;
+
+    switch(handling){
+        case "cardMoved": activityText = " flyttet " + item1 + " til " + item2;
+
+            break;
+
+        case "cardAdded": activityText = " Opprettet prosjektet " + item1;
+
+            break;
+
+        case "zoneAdded": activityText = " Opprettet kolonnen " + item1;
+
+            break;
+
+        case "cardRemoved": activityText = " Slettet prosjektet " + item1;
+            break;
+
+        case "edited": activityText = " Endret navn på " + item1 + " til " + item2;
+    }
+        
+    activityLogEntries.push({
+        logEntry: activityText,
+        logDate: dateTime,
+        name: "fredrik"
+            
+    });
+    renderActivityLogFromArray(activityLogEntries[activityLogEntries.length-1])
+            
+}
+ 
+//tar inn et objekt fra activityLogEntries og rendrer det ut i ActivityLoggen på siden.  
+function renderActivityLogFromArray(entry){
+        
+    let createLogEntryContainer = document.createElement("DIV");
+    let createLogEntryUser = document.createElement("H3");
+    let createLogEntry = document.createElement("P");
+    let createLogDate = document.createElement("p");
+
+    createLogEntryContainer.className ="activity-item cm-text-light cm-card-2 cm-shadow-c";
+    createLogEntryUser.className ="cm-text-p1";
+    createLogEntry.className ="cm-text-p1";
+    createLogDate.className ="activity-time cm-text-p1";
+
+    createLogEntryUser.innerText = entry.name;
+    createLogEntry.innerText = entry.logEntry;
+    createLogDate.innerText = entry.logDate;
+
+    ActivityEl.appendChild(createLogEntryContainer);
+    createLogEntryContainer.appendChild(createLogEntryUser);
+    createLogEntryContainer.appendChild(createLogEntry);
+    createLogEntryContainer.appendChild(createLogDate);
+}

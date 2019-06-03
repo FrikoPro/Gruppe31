@@ -229,6 +229,7 @@ INDEX:
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 .activity-area-container{
     display: flex;
@@ -238,6 +239,7 @@ INDEX:
     height: 90%;
     border-radius: 25px;
     border: 1px solid rgba(209, 209, 209, 1);
+    overflow-y: scroll;
 }
 .activity-item{
     margin-top: 5px;

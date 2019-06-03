@@ -35,7 +35,6 @@ li{
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
     align-items: flex-start;
-    height: 100vh;
 }
 .secondary-content{
     grid-area: secondary-content;

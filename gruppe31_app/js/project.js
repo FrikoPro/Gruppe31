@@ -31,7 +31,7 @@
     const mainEl = document.getElementById("main");
     
     //body element
-    var bodyEl = document.getElementsByTagName("BODY");
+    var bodyEl = document.getElementsByTagName("BODY")[0];
        
     //looper gjennom alle variablene i dropzones og kjører addDropZonesToDOM for hver av dem.
     dropZones.forEach(addDropZonesToDOM);
@@ -357,7 +357,7 @@
         createCardTitleBtn.className = "card-title-button";
         createCardTitleBtnIcon.className = "fas fa-ellipsis-h"; // Klasse fra FontAwesome.com
         createCardContent.className = "card-content";
-        createCardMembersDiv.className = "card-members superGrid";
+        createCardMembersDiv.className = "card-members cm-grid-light";
         createPersonBadge.className = "person";
         
         createCardTitle.innerText = card.name;

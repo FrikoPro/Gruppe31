@@ -8,7 +8,7 @@ var users = document.getElementsByClassName("users");
 var cards = document.getElementsByClassName("card");
 
 // main element where the new projects will be appended.
-var main = document.getElementById("main");
+var main = document.getElementById("main"); 
 
 // where the projects will be appended when they are dragged over the button history.
 var historyProject = document.getElementById("historyProject");

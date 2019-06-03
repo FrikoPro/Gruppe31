@@ -18,8 +18,9 @@ li{
 .container{
     display: grid;
     grid-template-columns: 100px 1fr 300px;
-    grid-template-rows: 1fr 50px;
+    grid-template-rows: 80px 1fr 50px;
     grid-template-areas: 
+    "header header header"
     "side-navigation main activity-area"
     "footer footer footer";
     height: 100vh;

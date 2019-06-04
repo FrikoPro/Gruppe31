@@ -8,15 +8,6 @@ if(!localStorage.getItem("usersArray")){
     
     var users = JSON.parse(localStorage.getItem("usersArray"));
     
-    /*
-    let cookieToUsersAsStrings = getCookie("usersArray").slice(0, -37).split("[!]");
-    
-    for(let i=0; i<cookieToUsersAsStrings.length; i++){
-    let properties = cookieToUsersAsStrings[i].split("[?]");
-    users[i] = {name: properties[0], firstName: properties[1], lastName: properties[2], password: properties[3]};
-    
-}
-*/
     
 }
 //DOM-element variables
@@ -104,21 +95,20 @@ registerToLoginElement.addEventListener("click", function(){
     registerInterfaceElement.style.display = "none";
 })
 
-/*
-//Cookies
-//Converting users array to cookie
-function convertUsersToCookie(){
-    let userCookie;
-    let usersIndexesAsString = [];
+=======
+
     for(let i=0; i<users.length; i++){
         usersIndexesAsString[i] = users[i].name + "[?]" + users[i].firstName + "[?]" + users[i].lastName + "[?]" + users[i].password
     };
+
     let usersString = usersIndexesAsString.join("[!]");
     let newDate = new Date(9999, 12);
     let d = newDate.toUTCString();
+
     document.cookie = "usersArray=" + usersString + "expires=" + d;
 }
 convertUsersToCookie(); */
 
+>>>>>>> e5bee03c4f56af50474beb84cff49dc6daf12531
 //Local Storage
 localStorage.setItem("usersArray", JSON.stringify(users));

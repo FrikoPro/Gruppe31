@@ -64,6 +64,11 @@ INDEX:
     border: 1px solid #ccc;
     box-shadow: 2px 2px 6px rgba(209, 209, 209, 1);
 }
+.cm-card-4{
+    display: block;
+    background: inherit;
+    box-shadow: inset 0 0 0 200px rgba(255,255,255,0.4);
+}
 
 /* SHADOW */
 .cm-shadow{

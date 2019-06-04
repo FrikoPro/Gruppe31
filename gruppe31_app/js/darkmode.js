@@ -25,6 +25,7 @@ if(darkmode == "1") {
         darkmodeIcon.style.color = "#ffffff";
         setCookie("darkmode", "1", 99);
         darkmode = getCookie("darkmode");
+        styleClassBackgroundColor(cardsClass, "#3a3a3a");
     } else {
         body.style.backgroundColor = "#ffffff";
         body.style.color = "#444444";

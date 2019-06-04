@@ -249,7 +249,7 @@
         
         if(getCookie("darkmode") == "1"){
             styleClassBackgroundColor(columnHeaderClass, "#3a3a3a");
-        }
+        } 
     }
     
     //Pusher et nytt kort inn i arrayet Cards[] og legger det up på siden.
@@ -274,7 +274,7 @@
         
         if(getCookie("darkmode") == "1"){
             styleClassBackgroundColor(cardsClass, "#3a3a3a");
-        }
+        } 
     }   
     
     //drag start func, som kjøres når man starter å dra

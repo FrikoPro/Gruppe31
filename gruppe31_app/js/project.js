@@ -181,6 +181,7 @@
         
         DeadLineInput.type = "date";
         DeadLineInput.id = "EditDeadLine";
+        DeadLineInput.value = cardObj.deadLine;
             
         cardEditDes.id = "des";
         cardEditDesText.id ="des-text";

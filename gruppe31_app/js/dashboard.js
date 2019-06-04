@@ -40,7 +40,6 @@ const activityLogEntries = [];
 // putting id's on the users
 for(var i =0; i<users.length; i++){
     users[i].addEventListener("dragstart", e => {
-        console.log("dragstart", e);
         userId = e.target.id;
     });
 }
@@ -99,9 +98,6 @@ function RenderProject(project){
     var cardList = [];
     
     createArticle.addEventListener("drop", e => {
-        console.log(projects);
-        console.log("User: " + userId);
-        console.log("Project: " + cardId);
         for(var i=0; i<projects.length; i++) {
             if (userId === "") {break;}
             if (projects[i].elementId === cardId && !projects[i].users.includes(userId)) {
@@ -128,9 +124,7 @@ function RenderProject(project){
     createArticle.setAttribute("draggable", true);
     
     createArticle.addEventListener("dragstart", e => {
-        console.log("dragstart", e);
         e.dataTransfer.setData("text/plain", e.target.id);
-        console.log(cardId);
     });
 }
 
@@ -144,7 +138,6 @@ sibBtnHistory.addEventListener("drop", e=> {
     e.preventDefault();
     var projectData = e.dataTransfer.getData("text/plain");
     var card = document.getElementById(projectData);
-    console.log(card);
     historyProject.appendChild(card);
 });
 
@@ -162,6 +155,16 @@ cardDisposal.addEventListener("drop", e=> {
             element.parentNode.removeChild(element);
             projects.splice(i, 1);
             break;
+        } else {
+            var project = document.getElementById(projects[i].elementId);
+            for(var j=0; j<project.childElementCount; j++) {
+                var elements = project.children;
+                if(elements[j].id === id) {
+                    elements[j].parentElement.removeChild(elements[j]);
+                    projects[i].users.splice(projects[i].users.indexOf(id), 1);
+                    break;
+                }
+            }
         }
     }
 });

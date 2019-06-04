@@ -85,7 +85,7 @@
         let createLogEntry = document.createElement("P");
         let createLogDate = document.createElement("p");
         
-        createLogEntryContainer.className ="cm-text-light cm-card-2 cm-shadow-c";
+        createLogEntryContainer.className ="activity-item cm-text-light cm-card-2 cm-shadow-c";
         createLogEntryUser.className ="cm-text-p1";
         createLogEntry.className ="cm-text-p1";
         createLogDate.className ="activity-time cm-text-p1";
@@ -268,6 +268,12 @@
         updateCard(cards[cards.length-1], true);
         
         cardCounter++;
+        
+        if(getCookie("darkmode") == "1"){
+            styleCardsBackgroundColor("#3a3a3a");
+        } else {
+            styleCardsBackgroundColor("#fff");
+        }
     }   
     
     //drag start func, som kjøres når man starter å dra

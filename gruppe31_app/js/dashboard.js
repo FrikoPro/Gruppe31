@@ -180,7 +180,7 @@ function PrintOutActivityLog(handling, item1, item2){
     let dateTime = date + " " +  time;
 
     switch(handling){
-        case "addedUser": activityText = " lagt til medlem " + item1 + " til prosjektet " + item2;
+        case "addedUser": activityText = " lagt til " + item1 + " til prosjektet " + item2;
 
             break;
 

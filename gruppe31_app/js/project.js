@@ -247,6 +247,9 @@
         updateDropZone(dropZones[dropZones.length-1], true);
         
         
+        if(getCookie("darkmode") == "1"){
+            styleClassBackgroundColor(columnHeaderClass, "#3a3a3a");
+        }
     }
     
     //Pusher et nytt kort inn i arrayet Cards[] og legger det up på siden.
@@ -270,9 +273,7 @@
         cardCounter++;
         
         if(getCookie("darkmode") == "1"){
-            styleCardsBackgroundColor("#3a3a3a");
-        } else {
-            styleCardsBackgroundColor("#fff");
+            styleClassBackgroundColor(cardsClass, "#3a3a3a");
         }
     }   
     
@@ -456,3 +457,8 @@
 
     cardDisposal.ondrop = cardDisposalDrop;
     cardDisposal.ondragover = cardDisposalDragOver;
+    
+    //Puts column headers in darkmode if the darkmode cookie is "1"
+    if(getCookie("darkmode") == "1"){
+                styleClassBackgroundColor(columnHeaderClass, "#3a3a3a");
+            } 

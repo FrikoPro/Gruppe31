@@ -4,10 +4,11 @@
 const body = document.getElementById("body");
 const darkmodeIcon = document.getElementById("dark-mode-icon");
 const cardsClass = document.getElementsByClassName("card-project");
+const columnHeaderClass = document.getElementsByClassName("column-header");
 
-function styleCardsBackgroundColor(color){
-    for(let i=0;i<cards.length;i++){
-        cardsClass[i].style.backgroundColor = color;
+function styleClassBackgroundColor(htmlClass, color){
+    for(let i=0;i<htmlClass.length;i++){
+        htmlClass[i].style.backgroundColor = color;
     }
 }
 
@@ -40,13 +41,15 @@ darkmodeIcon.addEventListener("click", () =>{
         darkmodeIcon.style.color = "#ffffff";
         setCookie("darkmode", "1", 99);
         darkmode = getCookie("darkmode");
-        styleCardsBackgroundColor("#3a3a3a");
+        styleClassBackgroundColor(cardsClass, "#3a3a3a");
+        styleClassBackgroundColor(columnHeaderClass, "#3a3a3a");
     } else {
         body.style.backgroundColor = "#ffffff";
         body.style.color = "#444444";
         darkmodeIcon.style.color = "#000000";
         setCookie("darkmode", "0", 99);
         darkmode = getCookie("darkmode");
-        styleCardsBackgroundColor("#fff");
+        styleClassBackgroundColor(cardsClass, "#fff");
+        styleClassBackgroundColor(columnHeaderClass, "#fff");
     }
 })

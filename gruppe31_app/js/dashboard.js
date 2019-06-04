@@ -34,9 +34,6 @@ for (var i=0; i<users.length; i++) {
 var cardId;
 var userId;
 
-// btnHistory ID
-var btnHistoryId;
-
 // array for alle Acitivity loggene
 const activityLogEntries = [];
 
@@ -54,7 +51,8 @@ let newProjectBtn = document.getElementById("btnCreateCard");
 newProjectBtn.addEventListener("click", AddProject);
 
 var projects =[];
-var counter = 0;
+var counterProject = 0;
+var counterUser = 0;
 
 function AddProject(){
     let newProjectObj = {
@@ -83,9 +81,9 @@ function RenderProject(project){
     createDiv.className = "cm-text";
     createBtn.className = "cm-button";
     
-    createArticle.id = "project" + counter;
+    createArticle.id = "project" + counterProject;
     project.elementId = createArticle.id;
-    counter++;
+    counterProject++;
     
     createH3.innerText = project.name;
     createP.innerText = project.info;
@@ -102,16 +100,20 @@ function RenderProject(project){
     
     createArticle.addEventListener("drop", e => {
         console.log(projects);
+        console.log("User: " + userId);
+        console.log("Project: " + cardId);
         for(var i=0; i<projects.length; i++) {
-            if (!projects[i].users.includes(userId)) {
+            if (userId === "") {break;}
+            if (projects[i].elementId === cardId && !projects[i].users.includes(userId)) {
                 projects[i].users.push(userId);
                 let user = document.getElementById(userId);
                 let card = document.getElementById(cardId);
                 let cln = user.cloneNode(true);
                 card.appendChild(cln);
+                PrintOutActivityLog("addedUser", userId, projects[i].name);
                 userId = "";
                 break;
-            }
+            } 
         }
     });
     
@@ -156,11 +158,10 @@ cardDisposal.addEventListener("drop", e=> {
     var element = document.getElementById(id);
     for(var i=0; i<projects.length; i++) {
         if(projects[i].elementId.includes(id)) {
-            PrintOutActivityLog("cardRemoved", id);
+            PrintOutActivityLog("cardRemoved", projects[i].name);
             element.parentNode.removeChild(element);
             projects.splice(i, 1);
-        } else {
-            element.parentNode.removeChild(element);
+            break;
         }
     }
 });
@@ -175,28 +176,23 @@ function PrintOutActivityLog(handling, item1, item2){
     let dateTime = date + " " +  time;
 
     switch(handling){
-        case "cardMoved": activityText = " flyttet " + item1 + " til " + item2;
+        case "addedUser": activityText = " lagt til medlem " + item1 + " til prosjektet " + item2;
 
             break;
 
         case "cardAdded": activityText = " Opprettet prosjektet " + item1;
 
             break;
-
-        case "zoneAdded": activityText = " Opprettet kolonnen " + item1;
-
-            break;
-
+            
         case "cardRemoved": activityText = " Slettet prosjektet " + item1;
+            
             break;
-
-        case "edited": activityText = " Endret navn på " + item1 + " til " + item2;
     }
         
     activityLogEntries.push({
         logEntry: activityText,
         logDate: dateTime,
-        name: "fredrik"
+        name: "Prosjekt Leder"
             
     });
     renderActivityLogFromArray(activityLogEntries[activityLogEntries.length-1])

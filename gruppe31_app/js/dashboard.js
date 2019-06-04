@@ -162,6 +162,7 @@ cardDisposal.addEventListener("drop", e=> {
                 if(elements[j].id === id) {
                     elements[j].parentElement.removeChild(elements[j]);
                     projects[i].users.splice(projects[i].users.indexOf(id), 1);
+                    PrintOutActivityLog("userRemoved", id, projects[i].name);
                     break;
                 }
             }
@@ -188,6 +189,10 @@ function PrintOutActivityLog(handling, item1, item2){
             break;
             
         case "cardRemoved": activityText = " Slettet prosjektet " + item1;
+            
+            break;
+        
+        case "userRemoved": activityText = " Slettet " + item1 + " fra prosjektet " + item2;
             
             break;
     }

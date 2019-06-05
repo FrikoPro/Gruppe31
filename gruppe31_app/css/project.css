@@ -27,7 +27,6 @@ li{
 }
 .main{
     grid-area: main;
-    background-color: #ffff;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     grid-gap: 10px;

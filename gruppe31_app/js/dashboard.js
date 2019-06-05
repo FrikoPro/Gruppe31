@@ -85,7 +85,7 @@ function RenderProject(project){
     createDiv.className = "card-header";
     createH3.className = "card-title";
     createBtn.className = "card-title-button";
-    createI.className = "fas fa-door-open";
+    createI.className = "fas fa-door-open cm-icon-3";
     createContent.className = "card-content";
     createDivM.className = "card-members cm-grid-light";
     

@@ -20,11 +20,11 @@
     //et array som skal lagre alt som blir skrevet ut i activityLoggen
     const activityLogEntries = [];
     
-    const projectmembers = [{firstName: "Fredrik", lastName: "Holanger", elementId: "user1"},
+    const projectmembers = JSON.parse(localStorage.getItem("usersArray"))/*[{firstName: "Fredrik", lastName: "Holanger", elementId: "user1"},
                             {firstName: "Kredrik", lastName: "Polanger", elementId: "user2"},
                             {firstName: "Fredrik", lastName: "Holanger", elementId: "user3"},
                             {firstName: "Fredrik", lastName: "Holanger", elementId: "user4"}
-                           ];
+                           ];*/
     
 
     //Addcard button Element

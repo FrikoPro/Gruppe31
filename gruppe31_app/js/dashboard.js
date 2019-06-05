@@ -7,6 +7,9 @@ var users = document.getElementsByClassName("users");
 // grabbing all the available project cards
 var cards = document.getElementsByClassName("card");
 
+//body element
+    var bodyEl = document.getElementsByTagName("BODY")[0];
+
 // main element where the new projects will be appended.
 var main = document.getElementById("main");
 
@@ -55,8 +58,7 @@ var counterUser = 0;
 
 function AddProject(){
     let newProjectObj = {
-        name: prompt("name"),
-        info: prompt("info"),
+        name: "New Project",
         elementId: "",
         users: []
     }
@@ -65,6 +67,8 @@ function AddProject(){
     
     
     RenderProject(projects[projects.length-1]);
+    editProjectName(projects[projects.length-1]);
+
 }
 
 // function thats runs when creating project from the "create" button
@@ -90,7 +94,7 @@ function RenderProject(project){
     counterProject++;
     
     createH3.innerText = project.name;
-    createContent.innerText = project.info;
+    createContent.innerText = "Project info";
     
     main.appendChild(createArticle);
     createArticle.appendChild(createDiv);
@@ -236,11 +240,6 @@ function renderActivityLogFromArray(entry){
     createLogEntryContainer.appendChild(createLogDate);
 }
 
-/* 
-//body element
-    var bodyEl = document.getElementsByTagName("BODY")[0];
-
-editProjectName(projects[projects.length-1]);
 
 function editProjectName(projectObj){
         
@@ -269,7 +268,7 @@ function editProjectName(projectObj){
         addProjectBtn.addEventListener("click", function(){
             
             projectEl = document.getElementById(projectObj.elementId);
-            projectcont = projectEl.querySelector(".cm-text");
+            projectcont = projectEl.querySelector(".card-header");
             projectTitleEl = projectcont.querySelector("H3");
             
             projectObj.name = addProjectHeader.innerText;
@@ -281,6 +280,12 @@ function editProjectName(projectObj){
         
         });
 }
+
+/* 
+
+
+
+
 
 
 

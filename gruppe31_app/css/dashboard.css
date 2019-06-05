@@ -164,3 +164,63 @@ text-align: center;
 .textStatus {
     margin: 10px 10px;
 }
+
+/* Popup on addProject */
+#zoneEditBtn{
+  position: absolute; 
+  bottom: 20px; 
+  width: 30%; 
+  height: 40px; 
+  border: 1px solid #ff6600;
+  left:0;
+  right:0;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  background-color: #ff6600;
+  color: black;
+  text-align:center;
+  font-size: 16px;
+  
+}
+
+#zoneEditBtn:hover{
+    background-color: #ff8533;
+    color: black;
+}
+
+#editZoneWindow{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 45vh;
+    height: 18vh;
+    background-color: black;
+    z-index: 12;
+    border-radius: 25px;
+    opacity: 0.88;
+    overflow: visible;
+    
+}
+
+.edit-Name{
+    
+text-align: center;
+color: white;
+width: 80%;
+margin: auto;
+margin-top: 20px;
+}
+
+#backgroundBlocker{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200vh;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    opacity: 0.2;
+}

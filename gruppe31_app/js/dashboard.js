@@ -72,30 +72,33 @@ function RenderProject(project){
     var createArticle = document.createElement("ARTICLE");
     var createDiv = document.createElement("DIV");
     var createH3 = document.createElement("H3");
-    var createP = document.createElement("P");
     var createBtn = document.createElement("button");
-    var createLink = document.createElement("a");
+    var createI = document.createElement("i");
+    var createContent = document.createElement("DIV");
+    var createDivM = document.createElement("DIV");
     
-    createArticle.className = "cm-card cm-shadow-wb";
-    createDiv.className = "cm-text";
-    createBtn.className = "cm-button";
+    createArticle.className = "card-project";
+    createDiv.className = "card-header";
+    createH3.className = "card-title";
+    createBtn.className = "card-title-button";
+    createI.className = "fas fa-ellipsis-h";
+    createContent.className = "card-content";
+    createDivM.className = "card-members cm-grid-light";
     
     createArticle.id = "project" + counterProject;
     project.elementId = createArticle.id;
     counterProject++;
     
     createH3.innerText = project.name;
-    createP.innerText = project.info;
-    createLink.innerText = "Enter";
+    createContent.innerText = project.info;
     
     main.appendChild(createArticle);
     createArticle.appendChild(createDiv);
     createDiv.appendChild(createH3);
-    createDiv.appendChild(createP);
     createDiv.appendChild(createBtn);
-    createBtn.appendChild(createLink); 
-    
-    var cardList = [];
+    createBtn.appendChild(createI);
+    createArticle.appendChild(createContent);
+    createArticle.appendChild(createDivM);
     
     createArticle.addEventListener("drop", e => {
         for(var i=0; i<projects.length; i++) {
@@ -105,7 +108,7 @@ function RenderProject(project){
                 let user = document.getElementById(userId);
                 let card = document.getElementById(cardId);
                 let cln = user.cloneNode(true);
-                card.appendChild(cln);
+                card.childNodes[2].appendChild(cln);
                 PrintOutActivityLog("addedUser", userId, projects[i].name);
                 userId = "";
                 break;
@@ -116,10 +119,12 @@ function RenderProject(project){
     createArticle.addEventListener("dragover", e => {
         e.preventDefault();
         e.dataTransfer.dropEffect = "move";
-        cardId = e.target.id;
+        cardId = e.currentTarget.id;
     });
     
-    createLink.setAttribute("href", "project.html");
+    createBtn.addEventListener("click", e=> {
+        document.location.href = "project.html";
+    })
     
     createArticle.setAttribute("draggable", true);
     
@@ -156,10 +161,10 @@ cardDisposal.addEventListener("drop", e=> {
             element.parentNode.removeChild(element);
             projects.splice(i, 1);
             break;
-        } else {
+        } else if (projects[i].users.includes(id)) {
             var project = document.getElementById(projects[i].elementId);
             for(var j=0; j<project.childElementCount; j++) {
-                var elements = project.children;
+                var elements = project.children[2].children;
                 if(elements[j].id === id) {
                     elements[j].parentElement.removeChild(elements[j]);
                     projects[i].users.splice(projects[i].users.indexOf(id), 1);

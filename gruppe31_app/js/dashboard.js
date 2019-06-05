@@ -162,7 +162,7 @@ cardDisposal.addEventListener("drop", e=> {
     var id = e.dataTransfer.getData("text/plain");
     var element = document.getElementById(id);
     for(var i=0; i<projects.length; i++) {
-        if(projects[i].elementId.includes(id)) {
+        if(projects[i].elementId.includes(id) && id != "") {
             PrintOutActivityLog("cardRemoved", projects[i].name);
             element.parentNode.removeChild(element);
             projects.splice(i, 1);

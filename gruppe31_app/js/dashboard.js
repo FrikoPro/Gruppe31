@@ -7,6 +7,9 @@ var users = document.getElementsByClassName("users");
 // grabbing all the available project cards
 var cards = document.getElementsByClassName("card");
 
+//body element
+    var bodyEl = document.getElementsByTagName("BODY")[0];
+
 // main element where the new projects will be appended.
 var main = document.getElementById("main");
 
@@ -55,8 +58,7 @@ var counterUser = 0;
 
 function AddProject(){
     let newProjectObj = {
-        name: prompt("name"),
-        info: prompt("info"),
+        name: "New Project",
         elementId: "",
         users: []
     }
@@ -65,6 +67,8 @@ function AddProject(){
     
     
     RenderProject(projects[projects.length-1]);
+    editProjectName(projects[projects.length-1]);
+
 }
 
 // function thats runs when creating project from the "create" button
@@ -90,7 +94,7 @@ function RenderProject(project){
     counterProject++;
     
     createH3.innerText = project.name;
-    createContent.innerText = project.info;
+    createContent.innerText = "Project info";
     
     main.appendChild(createArticle);
     createArticle.appendChild(createDiv);
@@ -235,3 +239,55 @@ function renderActivityLogFromArray(entry){
     createLogEntryContainer.appendChild(createLogEntry);
     createLogEntryContainer.appendChild(createLogDate);
 }
+
+
+function editProjectName(projectObj){
+        
+        let backgroundBlocker = document.createElement("DIV"); 
+        let addProjectWindow = document.createElement("DIV");
+        let addProjectHeader = document.createElement("H2");
+        let addProjectBtn = document.createElement("BUTTON");
+        
+        
+        backgroundBlocker.id = "backgroundBlocker";
+        addProjectWindow.id = "editZoneWindow";
+        addProjectHeader.id= "zone-Name";
+        addProjectHeader.className = "edit-Name";
+        addProjectBtn.id = "zoneEditBtn";
+        addProjectHeader.contentEditable = true;
+        addProjectBtn.innerText = "Save";
+        addProjectHeader.innerText = projectObj.name;
+       
+        bodyEl.appendChild(backgroundBlocker);
+        bodyEl.appendChild(addProjectWindow);
+        addProjectWindow.appendChild(addProjectHeader);
+        addProjectWindow.appendChild(addProjectBtn);
+        
+        
+        
+        addProjectBtn.addEventListener("click", function(){
+            
+            projectEl = document.getElementById(projectObj.elementId);
+            projectcont = projectEl.querySelector(".card-header");
+            projectTitleEl = projectcont.querySelector("H3");
+            
+            projectObj.name = addProjectHeader.innerText;
+            projectTitleEl.innerText = projectObj.name;
+            
+            backgroundBlocker.parentNode.removeChild(backgroundBlocker);
+            addProjectWindow.parentNode.removeChild(addProjectWindow);
+            
+        
+        });
+}
+
+/* 
+
+
+
+
+
+
+
+
+*/

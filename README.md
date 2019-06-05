@@ -9,6 +9,8 @@ ___
 ## Project Description
 Kanban'ish WebApp
 
+# CSS FIXES
+
 
 
 ## Project Log

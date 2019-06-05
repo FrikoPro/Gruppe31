@@ -3,21 +3,54 @@
 // Darkmode Dashboard
 const body = document.getElementById("body");
 const darkmodeIcon = document.getElementById("dark-mode-icon");
+const cardsClass = document.getElementsByClassName("card-project");
+const columnHeaderClass = document.getElementsByClassName("column-header");
 
+function styleClassBackgroundColor(htmlClass, color){
+    for(let i=0;i<htmlClass.length;i++){
+        htmlClass[i].style.backgroundColor = color;
+    }
+}
 
-var darkmode = false;
+//Creates a darkmode cookie if there is none
+if (getCookie("darkmode") == ""){
+    setCookie("darkmode", "0", 99);
+}
+var darkmode = getCookie("darkmode");
 
-
-darkmodeIcon.addEventListener("click", () =>{
-    if(!darkmode) {
+//Changes the site to darkmode upon loading if the darkmode cookie is "1"
+if(darkmode == "1") {
         body.style.backgroundColor = "#444444";
         body.style.color = "#fff";
         darkmodeIcon.style.color = "#ffffff";
-        darkmode = true;
+        setCookie("darkmode", "1", 99);
+        darkmode = getCookie("darkmode");
+        styleClassBackgroundColor(cardsClass, "#3a3a3a");
     } else {
         body.style.backgroundColor = "#ffffff";
         body.style.color = "#444444";
         darkmodeIcon.style.color = "#000000";
-        darkmode = false;
+        setCookie("darkmode", "0", 99);
+        darkmode = getCookie("darkmode");
+    }
+
+//Makes clicking on the darkmode icon switch the site between darkmode on/off
+darkmodeIcon.addEventListener("click", () =>{
+  if(darkmode == "0") {
+        body.style.backgroundColor = "#444444";
+        body.style.color = "#fff";
+        darkmodeIcon.style.color = "#ffffff";
+        setCookie("darkmode", "1", 99);
+        darkmode = getCookie("darkmode");
+        styleClassBackgroundColor(cardsClass, "#3a3a3a");
+        styleClassBackgroundColor(columnHeaderClass, "#3a3a3a");
+    } else {
+        body.style.backgroundColor = "#ffffff";
+        body.style.color = "#444444";
+        darkmodeIcon.style.color = "#000000";
+        setCookie("darkmode", "0", 99);
+        darkmode = getCookie("darkmode");
+        styleClassBackgroundColor(cardsClass, "#fff");
+        styleClassBackgroundColor(columnHeaderClass, "#fff");
     }
 })

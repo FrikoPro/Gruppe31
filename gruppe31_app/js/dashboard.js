@@ -235,3 +235,54 @@ function renderActivityLogFromArray(entry){
     createLogEntryContainer.appendChild(createLogEntry);
     createLogEntryContainer.appendChild(createLogDate);
 }
+
+/* 
+//body element
+    var bodyEl = document.getElementsByTagName("BODY")[0];
+
+editProjectName(projects[projects.length-1]);
+
+function editProjectName(projectObj){
+        
+        let backgroundBlocker = document.createElement("DIV"); 
+        let addProjectWindow = document.createElement("DIV");
+        let addProjectHeader = document.createElement("H2");
+        let addProjectBtn = document.createElement("BUTTON");
+        
+        
+        backgroundBlocker.id = "backgroundBlocker";
+        addProjectWindow.id = "editZoneWindow";
+        addProjectHeader.id= "zone-Name";
+        addProjectHeader.className = "edit-Name";
+        addProjectBtn.id = "zoneEditBtn";
+        addProjectHeader.contentEditable = true;
+        addProjectBtn.innerText = "Save";
+        addProjectHeader.innerText = projectObj.name;
+       
+        bodyEl.appendChild(backgroundBlocker);
+        bodyEl.appendChild(addProjectWindow);
+        addProjectWindow.appendChild(addProjectHeader);
+        addProjectWindow.appendChild(addProjectBtn);
+        
+        
+        
+        addProjectBtn.addEventListener("click", function(){
+            
+            projectEl = document.getElementById(projectObj.elementId);
+            projectcont = projectEl.querySelector(".cm-text");
+            projectTitleEl = projectcont.querySelector("H3");
+            
+            projectObj.name = addProjectHeader.innerText;
+            projectTitleEl.innerText = projectObj.name;
+            
+            backgroundBlocker.parentNode.removeChild(backgroundBlocker);
+            addProjectWindow.parentNode.removeChild(addProjectWindow);
+            
+        
+        });
+}
+
+
+
+
+*/

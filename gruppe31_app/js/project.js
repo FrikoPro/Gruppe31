@@ -732,10 +732,11 @@
         let percentBar = document.getElementById("progress"); 
         let percentageStr = (percentage+"%").toString();
         console.log(percentageStr);
-        if(percentage == 0){
-            percentBar.innerText = "";
-        }else{
+        if((percentage <= 100) && (percentage > 1)){
+            
             percentBar.innerText = percentageStr;
+        }else{
+            percentBar.innerText = "";
         }
         
         percentBar.style.width= percentageStr;

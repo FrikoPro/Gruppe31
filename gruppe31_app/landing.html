@@ -29,15 +29,15 @@
         </header>
         <main class="main">
 
-            <div class="login-container cm-card-3">
+            <div id="loginInterface" class="login-container cm-card-3">
                 <form action="" class="login-form">
-                    <label class="label" for="email">Email</label>
+                    <label id="loginTitle" class="label" for="email">Email</label>
                     <input class="input" type="text" placeholder=" Email...">
 
-                    <label class="label" for="password">Password</label>
+                    <label id="loginPassword" class="label" for="password">Password</label>
                     <input class="input" type="text" placeholder=" Password">
 
-                    <button class="form-btn cm-button-b" type="submit">Enter</button>
+                    <button id="loginBtn" class="form-btn cm-button-b" type="submit">Enter</button>
                 </form>
                 <a href="./dashboard.html"><button class="form-btn cm-button-secondary" type="submit">Register</button></a>
                 <div class="login-image-container">
@@ -47,9 +47,56 @@
                 </div>
             </div>
 
+            <div id="loginInterface" class="login-container cm-card-3">
+            
+                    <p id="loginTitle">Log in</p>
+                    
+                    <p id="loginUsername">Username</p>
+                    <input id="usernameInput" placeholder="Enter here...">
+                    
+                    
+                    <p id="loginPassword">Password</p>
+                    <input id="passwordInput" placeholder="Enter here..." type=password>
+                    
+                    <button id="loginBtn">Log In</button>
+                    
+                    <a id="loginGuest" href="PLACEHOLDER">...or continue as a guest</a>
+                    
+                    <button id="loginToRegister" >Register a new user</button>
+                    
+                </div>
+                
+                <div id="registerInterface" class="login-container cm-card-3">
+                    
+                    <p id="registerTitle">Register User</p>
+                    
+                    <p id="registerUsername">Username (Max 20 characters)</p>
+                    <input id="registerUsernameInput" placeholder="Enter username...">
+                    
+                    <p id="registerFullName">Full name</p>
+                    <input id="registerFirstNameInput" placeholder="Enter first name...">
+                    
+                    
+                    <input id="registerLastNameInput" placeholder="Enter lastname...">
+                    
+                    
+                    <p id="registerPassword">Password (6-18 characters)</p>
+                    <input id="registerPasswordInput" placeholder="Enter password..." type=password>
+                    
+                    
+                    <input id="confirmPasswordInput" placeholder="Confirm password..." type=password>
+                    
+                    <button id="registerBtn">Register</button>
+                    
+                    <button id="registerToLogin" >Already have a user? Log in</button>
+                    
+                    
+                </div>
+
 
         </main>
     </div>
     <script src="./js/dashboard.js"></script>
+    <script src="cookies.js"></script>
 </body>
 </html>

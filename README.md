@@ -14,6 +14,9 @@ Kanban'ish WebApp
 2. Add min-height til kort på project siden.
 3. Redo dashboard-cards to hold percentage bar
 
+BUGS:
+Collect-users-from-trash-bug: Drag a member to trash. Create project card. Drag card over trash without letting go. Drag project-card back to main area. You should see the member added to the project.
+
 
 
 

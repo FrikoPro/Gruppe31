@@ -57,7 +57,49 @@ li{
     overflow: hidden;
     overflow-y: scroll;
 }
-
+/* Card */
+.card-project{
+    display: block;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px rgba(209, 209, 209, 1);
+}
+/* Card Content */
+.card-header{
+display: grid;
+grid-auto-flow: column;
+justify-content: space-between;
+}
+.card-title{
+margin-left: 10px;
+color: #777;
+}
+.card-title-button{
+background-color: #589bea;
+border: none;
+color: black;
+text-align: center;
+text-decoration: none;
+width: 50px;
+border-radius: 0 10px 0 10px;
+}
+.card-members{
+background: #eeee;
+border-radius: 0 0 15px 15px;
+}
+.person{
+display: grid;
+justify-content: center;
+align-items: center;
+margin: 5px;
+height: 30px;
+width: 30px;
+border-radius: 15px;
+background-color: gold;
+text-align: center;
+}
 .userDiv{
     display: grid;
     justify-content: right;

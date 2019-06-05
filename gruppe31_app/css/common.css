@@ -12,6 +12,9 @@ INDEX:
 5 Icon
 
 */
+a{
+    color: white;
+}
 
 /* ACTIVITY SCROLL */
 ::-webkit-scrollbar{
@@ -167,6 +170,28 @@ INDEX:
     height: 40px;
 }
 
+/* PROGRESS BAR */
+.cm-progress-container{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    background-color: #ccc;
+    height: 20px;
+    border-radius: 10px;
+}
+.cm-progress{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #589bea;
+    width: 50%;
+    height: 100%;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+}
 /* NAVBAR (Header) */
 .header{
     grid-area: header;

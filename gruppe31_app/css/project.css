@@ -252,24 +252,7 @@ margin-top: 20px;
     color: black;
 }
 
-.icon-container .tooltip {
-  visibility: hidden;
-  width: 100px;
-  background-color: rgba(0,0,0, 0.8);
-  color: white;
-  text-align: center;
-  border-radius: 5px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 15;
-  left: 6em;
-  font-size: 14px;
-  font-weight: bold;
-}
 
-.icon-container:hover .tooltip {
-  visibility: visible;
-}
 
 #zoneEditBtn{
   position: absolute; 

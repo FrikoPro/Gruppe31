@@ -227,6 +227,23 @@ INDEX:
 .icon-container:hover .cm-icon{
     font-size: 30px;
 }
+.tooltip {
+    visibility: hidden;
+    width: 100px;
+    background-color: rgba(0,0,0, 0.8);
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 15;
+    left: 6em;
+    font-size: 14px;
+    font-weight: bold;
+  }
+.icon-container:hover .tooltip {
+    visibility: visible;
+  }
 
 /* Activity area */
 .activity-area{
@@ -254,9 +271,10 @@ INDEX:
 /* FOOTER */
 .footer{
     grid-area: footer;
-    background-color: #999999;
+    background-color: #081738;
     display: flex;
     align-content: center;
     justify-content: center;
     color: #fff;
 }
+

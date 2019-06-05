@@ -9,7 +9,11 @@ ___
 ## Project Description
 Kanban'ish WebApp
 
-# CSS FIXES
+# CSS TODO'S
+1. Fix ikoner som viser navn til bruker. (dashboard & project)
+2. Add min-height til kort på project siden.
+3. Redo dashboard-cards to hold percentage bar
+
 
 
 

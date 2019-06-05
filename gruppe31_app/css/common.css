@@ -152,6 +152,14 @@ a{
     color: #ff6600;
     font-size: 16px;
 }
+.cm-icon-3{
+    color: #fff;
+    font-size: 15px;
+    transition: all 0.1s;
+}
+.cm-icon-3:hover{
+    font-size: 20px;
+}
 /* TEXT */
 .cm-text{
     padding: 20px;

@@ -1,11 +1,13 @@
 //var currentUserCookie = getCookie("currentUser").split("[?]");
 //var currentUser =  {name: currentUserCookie[0], firstName: currentUserCookie[1], lastName: currentUserCookie[2], password: currentUserCookie[3]}
 //Current User
+
+    var currentUserCookie = getCookie("currentUser").split("[?]");
     
     var cardCounter = 0;
     var zoneCounter = 3;
     var projectMemberCounter = 1;
-    var user = "Fredrik";
+    var user = currentUserCookie[0];
     //dropZones array
     const dropZones = [
         {name: "todo", elementId: "zone0"},
@@ -260,7 +262,7 @@
             let desTextEl = cardEl.querySelector(".card-content");
             let addedCardMembers = cardMembersDiv.querySelectorAll(".users");
             let allMembers = userDiv.querySelectorAll(".users");
-            let cardMemberAreaEl = cardEl.querySelector(".cm-grid-light");
+            let cardMemberAreaEl = cardEl.querySelector("#c-m");
             let deadLineEl = cardEl.querySelector("#deadLineDiv");
             let deadLineTextEl = deadLineEl.querySelector("#deadLineDivText");
             
@@ -441,7 +443,7 @@
         dropZones.push(newZone);
         addDropZonesToDOM(dropZones[dropZones.length-1]);
         updateDropZone(dropZones[dropZones.length-1], true);
-        
+        updatePercentDone();
         if(getCookie("darkmode") == "1"){
             styleClassBackgroundColor(columnHeaderClass, "#3a3a3a");
         } 
@@ -458,7 +460,7 @@
     
                 name: "New Card",
                 description: "Card Content",
-                status: "zone0",
+                status: dropZones[0].elementId,
                 userIcons: [],
                 deadLine: "ingen",
                 elementId: "card" + cardCounter
@@ -474,6 +476,7 @@
         if(getCookie("darkmode") == "1"){
             styleClassBackgroundColor(cardsClass, "#3a3a3a");
         } 
+        updatePercentDone();
     }   
     
     //drag start func, som kjøres når man starter å dra
@@ -508,6 +511,7 @@
             let el = document.getElementById(data);
             event.target.appendChild(el);
             card.status = event.target.id;
+            updatePercentDone();
             PrintOutActivityLog("cardMoved", getCardObjectById(data).name, getZoneObjectById(event.target.id).name);
         }
 
@@ -578,7 +582,9 @@
         createCardTitleBtnIcon.className = "fas fa-ellipsis-h"; // Klasse fra FontAwesome.com
         createCardContent.className = "card-content";
         
-        createCardMembersDiv.className = "cm-grid-light";
+        createCardMembersDiv.classList.add("cm-grid-light");
+        createCardMembersDiv.classList.add("card-members");
+        createCardMembersDiv.id = "c-m";
         createDeadLineDiv.className = ""; //klassenavn
         createDeadLineDiv.id = "deadLineDiv";
         createDeadLineText.id ="deadLineDivText";
@@ -596,16 +602,17 @@
         createCardHeader.appendChild(createCardTitleBtn);
         createCardTitleBtn.appendChild(createCardTitleBtnIcon); // Benjamin
         createCard.appendChild(createCardContent);
-        createCard.appendChild(createCardMembersDiv);
         createCard.appendChild(createDeadLineDiv);
         createDeadLineDiv.appendChild(createDeadLineText);
+        createCard.appendChild(createCardMembersDiv);
+        
         
         createCard.id = card.elementId;
         createCard.draggable = true;
         createCard.ondragstart = dragstart_handler;
         createCardTitleBtn.onclick = onCardClick;                          
         console.log(card.elementId);
-     }
+        }
 
     //
     function ondragLeave_handler(event){
@@ -647,11 +654,13 @@
         dropZones.splice(dropZones.indexOf(currentZoneObj), 1);
         PrintOutActivityLog("zoneRemoved", currentZoneObj.name);
         
+        //sletter kort objektene som lå i sonen som ble slettet fra cards[]
         for(var i = 0; i < cards.length; i++){
             if(cards[i].status == currentZoneObj.elementId){
                 cards.splice(i , 1);
                }
         }
+        updatePercentDone();
     }
 
     //tar inn element IDen til et kort og sletter det fra Siden og i Cards[] Arrayet.
@@ -662,6 +671,7 @@
         targetCard.parentNode.removeChild(targetCard);
         cards.splice(cards.indexOf(currentCardObj), 1);
         PrintOutActivityLog("cardRemoved", currentCardObj.name);
+        updatePercentDone();
     }
     
     //Kjøres når man Holder et "card" over søppelkassa
@@ -699,13 +709,13 @@
     }
 
     //regner ut hvor mange prosent ferdig prosjektet er
-    function getPercentDone(){
+    function updatePercentDone(){
             
         let eachStepPercentage = 100/(dropZones.length-1);
         console.log("dropzones-1: " + (dropZones.length-1));
         
         let percentage = 0;
-        console.log("100 per: " + eachStepPercentage*(dropZones.length-1));
+        
         for(var i = 1; i < dropZones.length; i++){
             cards.forEach(function(card){
                 if(card.status == dropZones[i].elementId){
@@ -715,9 +725,20 @@
             });    
             
         }
-        percentage = percentage/cards.length;
         
-       return percentage; 
+        percentage = Math.floor(percentage/cards.length);
+        
+      
+        let percentBar = document.getElementById("progress"); 
+        let percentageStr = (percentage+"%").toString();
+        console.log(percentageStr);
+        if(percentage == 0){
+            percentBar.innerText = "";
+        }else{
+            percentBar.innerText = percentageStr;
+        }
+        
+        percentBar.style.width= percentageStr;
     }
     addCardBtn.addEventListener("click", AddCard);
     

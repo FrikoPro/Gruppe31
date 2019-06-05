@@ -69,29 +69,26 @@ li{
 }
 
 .users{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     width: 40px;
     height: 40px;
-    border-radius: 100%;
-    border: 2px solid red;
-    float: right;
+    border-radius: 20px;
+    border: 1px solid rgba(209, 209, 209, 0.8);
+}
+
+
+#user1:hover {
     background-color: blueviolet;
 }
 
-.textUser {
-    text-align: center;
-    position: relative;
-    bottom: 5px;
-}
-
-#user1 {
-    background-color: blueviolet;
-}
-
-#user2 {
+#user2:hover {
     background-color: chartreuse;
 }
 
-#user3 {
+#user3:hover {
     background-color: crimson;
 }
 

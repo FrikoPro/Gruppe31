@@ -146,7 +146,10 @@ INDEX:
     font-size: 20px;
     transition: all 0.1s ease-in-out;
 }
-
+.cm-icon-2{
+    color: #ff6600;
+    font-size: 16px;
+}
 /* TEXT */
 .cm-text{
     padding: 20px;
@@ -189,7 +192,16 @@ INDEX:
     grid-gap: 1.5em;
     margin-right: 20px;
 }
-
+.cm-users{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(209, 209, 209, 0.8);
+}
 /* Sidenav */
 .side-navigation{
     grid-area: side-navigation;

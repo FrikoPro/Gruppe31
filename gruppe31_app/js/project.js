@@ -442,6 +442,10 @@
         addDropZonesToDOM(dropZones[dropZones.length-1]);
         updateDropZone(dropZones[dropZones.length-1], true);
         
+        if(getCookie("darkmode") == "1"){
+            styleClassBackgroundColor(columnHeaderClass, "#3a3a3a");
+        } 
+        
         
     }
     
@@ -466,6 +470,10 @@
         updateCard(cards[cards.length-1], true);
         
         cardCounter++;
+        
+        if(getCookie("darkmode") == "1"){
+            styleClassBackgroundColor(cardsClass, "#3a3a3a");
+        } 
     }   
     
     //drag start func, som kjøres når man starter å dra
@@ -718,6 +726,11 @@
 
     cardDisposal.ondrop = cardDisposalDrop;
     cardDisposal.ondragover = cardDisposalDragOver;
+
+    //Puts column headers in darkmode if the darkmode cookie is "1"
+    if(getCookie("darkmode") == "1"){
+                styleClassBackgroundColor(columnHeaderClass, "#3a3a3a");
+            } 
 
 
     

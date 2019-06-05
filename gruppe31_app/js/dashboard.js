@@ -44,7 +44,7 @@ for(var i =0; i<users.length; i++){
     });
 }
 
-
+// pluss-tegn knappen på venstre side av siden.
 let newProjectBtn = document.getElementById("btnCreateCard");
 
 newProjectBtn.addEventListener("click", AddProject);
@@ -147,6 +147,7 @@ cardDisposal.addEventListener("dragover", e=> {
 });
 
 cardDisposal.addEventListener("drop", e=> {
+    userId = "";
     var id = e.dataTransfer.getData("text/plain");
     var element = document.getElementById(id);
     for(var i=0; i<projects.length; i++) {

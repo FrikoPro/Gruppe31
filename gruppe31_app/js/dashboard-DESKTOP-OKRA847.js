@@ -65,6 +65,8 @@ function AddProject(){
         users: []
     }
     projects.push(newProjectObj);
+    PrintOutActivityLog("cardAdded", newProjectObj.name);
+    
     
     RenderProject(projects[projects.length-1]);
     editProjectName(projects[projects.length-1]);
@@ -160,7 +162,7 @@ cardDisposal.addEventListener("drop", e=> {
     var id = e.dataTransfer.getData("text/plain");
     var element = document.getElementById(id);
     for(var i=0; i<projects.length; i++) {
-        if(projects[i].elementId.includes(id) && id != "") {
+        if(projects[i].elementId.includes(id)) {
             PrintOutActivityLog("cardRemoved", projects[i].name);
             element.parentNode.removeChild(element);
             projects.splice(i, 1);
@@ -277,7 +279,6 @@ function editProjectName(projectObj){
             backgroundBlocker.parentNode.removeChild(backgroundBlocker);
             addProjectWindow.parentNode.removeChild(addProjectWindow);
             
-            PrintOutActivityLog("cardAdded", projectObj.name);
         
         });
 }

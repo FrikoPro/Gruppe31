@@ -3,6 +3,9 @@
 
 var currentUserCookie = getCookie("currentUser").split("[?]");
 var currentUser = currentUserCookie[0];
+
+var userList = JSON.parse(localStorage.getItem("usersArray"));
+
 // users array of the user icon in the top right corner
 var users = document.getElementsByClassName("users");
 
@@ -31,6 +34,7 @@ var cardDisposal = document.getElementById("cardDisposal");
 // makes the elements draggable
 for (var i=0; i<users.length; i++) {
     users[i].setAttribute("draggable", true);
+    users[i].firstChild.innerText = userList[i].firstName.charAt(0).toUpperCase() + userList[i].lastName.charAt(0).toUpperCase();
 }
 
 //--* GLOBAL variables *--
@@ -116,6 +120,14 @@ function RenderProject(project){
                 projects[i].users.push(cln.id);
                 projects[i].users.push(userId);
                 card.childNodes[2].appendChild(cln);
+                switch(userId) {
+                    case "user1": userId = userList[0].name;
+                        break;
+                    case "user2": userId = userList[1].name;
+                        break;
+                    case "user3": userId = userList[2].name;
+                        break;
+                }
                 PrintOutActivityLog("addedUser", userId, projects[i].name);
                 userId = "";
                 break;
@@ -174,8 +186,17 @@ cardDisposal.addEventListener("drop", e=> {
                 var elements = project.children[2].children;
                 if(elements[j].id === id) {
                     elements[j].parentElement.removeChild(elements[j]);
+                    var user = projects[i].users[projects[i].users.indexOf(id)+1];
+                    switch(user) {
+                        case "user1": user = userList[0].name;
+                            break;
+                        case "user2": user = userList[1].name;
+                            break;
+                        case "user3": user = userList[2].name;
+                            break;
+                }
+                    PrintOutActivityLog("userRemoved", user, projects[i].name);
                     projects[i].users.splice(projects[i].users.indexOf(id), 2);
-                    PrintOutActivityLog("userRemoved", id, projects[i].name);
                     break;
                 }
             }
@@ -284,14 +305,3 @@ function editProjectName(projectObj){
         
         });
 }
-
-/* 
-
-
-
-
-
-
-
-
-*/

@@ -111,6 +111,7 @@ text-align: center;
 }
 
 .users{
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,19 +122,20 @@ text-align: center;
     border: 1px solid rgba(209, 209, 209, 0.8);
 }
 
-
-#user1:hover {
-    background-color: blueviolet;
+.users:hover{
+    background-color: gold;
 }
 
-#user2:hover {
-    background-color: chartreuse;
+.DarkIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid rgba(209, 209, 209, 0.8);
 }
-
-#user3:hover {
-    background-color: crimson;
-}
-
 
 #divOngoingProjects {
     top: 200px;

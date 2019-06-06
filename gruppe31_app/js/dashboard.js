@@ -1,37 +1,73 @@
 // dashboard.js
 // Javascript for the dashboard
+/* TABLE OF CONTENTS 
+content: LineNr(start-end)
+Global variables: 14-64
+Adding users: 67-85
+creating project: 88-178
+Project history: 181-191
+Deleting stuff: 195-231
+Activity log: 235-292
+Create project popUp: 296-335
+*/
 
+
+//--* GLOBAL variables *--
+
+// variable that gets the user info of the currently user that is  logged in
 var currentUserCookie = getCookie("currentUser").split("[?]");
 var currentUser = currentUserCookie[0];
 
 // array of local currently users
 var userList = JSON.parse(localStorage.getItem("usersArray"));
 
+// the div in the upper right corner for users
 var userContainer = document.getElementById("userDiv");
 
 // grabbing all the available project cards
 var cards = document.getElementsByClassName("card");
 
 //body element
-    var bodyEl = document.getElementsByTagName("BODY")[0];
+var bodyEl = document.getElementsByTagName("BODY")[0];
 
-// main element where the new projects will be appended.
+// main element where the new projects will be appended
 var main = document.getElementById("main");
 
-// where the projects will be appended when they are dragged over the button history.
+// where the projects will be appended when they are dragged over the button history
 var historyProject = document.getElementById("historyProject");
+
+
+// activity log //
 
 // activity container
 var ActivityEl = document.getElementById("activityContainer");
+// array for alle Acitivity loggene
+const activityLogEntries = [];
 
-var btnHistory = document.getElementById("btnHistory");
-var sibBtnHistory = document.getElementById("sibBtnHistory");
-var btnHistoryIcon = document.getElementById("btnHistoryIcon");
-var containerHistory = document.getElementById("containerHistory");
 
+// Side bar //
+
+// Button for creating project.
+var newProjectBtn = document.getElementById("btnCreateCard");
+// Button for putting projects to the history container
+var BtnHistory = document.getElementById("sibBtnHistory");
+// Button for deleting projects and users
 var cardDisposal = document.getElementById("cardDisposal");
 
-// loading in users that is currently in the local memory.
+
+// references to the ID of card and user
+var cardId;
+var userId;
+
+
+// project array which stores the info of the currently projects
+var projects =[];
+// creates a unique ID of every project
+var counterProject = 0;
+// unique ID for users
+var counterUser = 0;
+
+// loading in users that is currently in the localStorage
 for (var i=0; i<userList.length; i++) {
     var userDiv = document.createElement("div");
     var userH3 = document.createElement("h3");
@@ -52,23 +88,7 @@ for (var i=0; i<userList.length; i++) {
     userList[i].lastName.charAt(0).toUpperCase();
 }
 
-//--* GLOBAL variables *--
-
-// references to the ID of card and user
-var cardId;
-var userId;
-
-// array for alle Acitivity loggene
-const activityLogEntries = [];
-
-// pluss-tegn knappen på venstre side av siden.
-let newProjectBtn = document.getElementById("btnCreateCard");
-
 newProjectBtn.addEventListener("click", AddProject);
-
-var projects =[];
-var counterProject = 0;
-var counterUser = 0;
 
 function AddProject(){
     let newProjectObj = {
@@ -81,6 +101,16 @@ function AddProject(){
     RenderProject(projects[projects.length-1]);
     editProjectName(projects[projects.length-1]);
 
+}
+
+function checkUser (user, list) {
+    for(var i=0; i<list.length; i++) {
+        if(user === "user" + (i+1)) {
+            userId = userList[i].name;
+        } else {continue;}
+        break;
+    }
+    return userId;
 }
 
 // function thats runs when creating project from the "create" button
@@ -128,14 +158,7 @@ function RenderProject(project){
                 projects[i].users.push(cln.id);
                 projects[i].users.push(userId);
                 card.childNodes[2].appendChild(cln);
-                switch(userId) {
-                    case "user1": userId = userList[0].name;
-                        break;
-                    case "user2": userId = userList[1].name;
-                        break;
-                    case "user3": userId = userList[2].name;
-                        break;
-                }
+                checkUser(userId, userList);
                 PrintOutActivityLog("addedUser", userId, projects[i].name);
                 userId = "";
                 break;
@@ -161,19 +184,19 @@ function RenderProject(project){
 }
 
 // Adding projects to history
-btnHistory.addEventListener("dragover", e=> {
+BtnHistory.addEventListener("dragover", e=> {
     e.preventDefault();
     e.dataTransfer.dropEffect = "move";
 });
 
-sibBtnHistory.addEventListener("drop", e=> {
+BtnHistory.addEventListener("drop", e=> {
     e.preventDefault();
     var projectData = e.dataTransfer.getData("text/plain");
     var card = document.getElementById(projectData);
     historyProject.appendChild(card);
 });
 
-// remove projects
+// remove projects and users
 cardDisposal.addEventListener("dragover", e=> {
     e.preventDefault();
 });
@@ -194,16 +217,9 @@ cardDisposal.addEventListener("drop", e=> {
                 var elements = project.children[2].children;
                 if(elements[j].id === id) {
                     elements[j].parentElement.removeChild(elements[j]);
-                    var user = projects[i].users[projects[i].users.indexOf(id)+1];
-                    switch(user) {
-                        case "user1": user = userList[0].name;
-                            break;
-                        case "user2": user = userList[1].name;
-                            break;
-                        case "user3": user = userList[2].name;
-                            break;
-                }
-                    PrintOutActivityLog("userRemoved", user, projects[i].name);
+                    userId = projects[i].users[projects[i].users.indexOf(id)+1];
+                    checkUser(userId, userList);
+                    PrintOutActivityLog("userRemoved", userId, projects[i].name);
                     projects[i].users.splice(projects[i].users.indexOf(id), 2);
                     break;
                 }
@@ -272,7 +288,7 @@ function renderActivityLogFromArray(entry){
     createLogEntryContainer.appendChild(createLogDate);
 }
 
-
+// popUp when adding a project
 function editProjectName(projectObj){
         
         let backgroundBlocker = document.createElement("DIV"); 

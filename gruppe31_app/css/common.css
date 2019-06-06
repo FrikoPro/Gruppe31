@@ -167,6 +167,14 @@ a{
 .cm-icon-3:hover{
     font-size: 20px;
 }
+.cm-icon-4{
+    color: #ff6600;
+    font-size: 25px;
+    transition: all 0.1 ease-in-out;
+}
+.cm-icon-4:hover{
+    color: #589bea;
+}
 /* TEXT */
 .cm-text{
     padding: 20px;

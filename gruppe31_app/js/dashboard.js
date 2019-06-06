@@ -108,10 +108,13 @@ function RenderProject(project){
         for(var i=0; i<projects.length; i++) {
             if (userId === "") {break;}
             if (projects[i].elementId === cardId && !projects[i].users.includes(userId)) {
-                projects[i].users.push(userId);
                 let user = document.getElementById(userId);
                 let card = document.getElementById(cardId);
                 let cln = user.cloneNode(true);
+                cln.id = "clone" + counterUser;
+                counterUser++;
+                projects[i].users.push(cln.id);
+                projects[i].users.push(userId);
                 card.childNodes[2].appendChild(cln);
                 PrintOutActivityLog("addedUser", userId, projects[i].name);
                 userId = "";
@@ -171,7 +174,7 @@ cardDisposal.addEventListener("drop", e=> {
                 var elements = project.children[2].children;
                 if(elements[j].id === id) {
                     elements[j].parentElement.removeChild(elements[j]);
-                    projects[i].users.splice(projects[i].users.indexOf(id), 1);
+                    projects[i].users.splice(projects[i].users.indexOf(id), 2);
                     PrintOutActivityLog("userRemoved", id, projects[i].name);
                     break;
                 }

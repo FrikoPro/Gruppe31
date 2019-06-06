@@ -50,7 +50,8 @@ Her finnes tekniske detaljer utover det som er kommenter i koden. Se kommentarer
 
 
 Strøm: welcome -> landing -> dashboard -> project.
-CSS (Mappe):
+
+### CSS (Mappe)
 
 ###### common.css
 Inneholder en rekke felles klasser som skrives på formen cm-<klassenavn>. Eksempel: “cm-grid” er en klasse som utvider “grid”. Her finnes også prosjektspesifikke klasser som ikke er skrevet på “cm” formatet, men som benyttes flere steder i applikasjonen.

@@ -4,10 +4,10 @@
 var currentUserCookie = getCookie("currentUser").split("[?]");
 var currentUser = currentUserCookie[0];
 
+// array of local currently users
 var userList = JSON.parse(localStorage.getItem("usersArray"));
 
-// users array of the user icon in the top right corner
-var users = document.getElementsByClassName("users");
+var userContainer = document.getElementById("userDiv");
 
 // grabbing all the available project cards
 var cards = document.getElementsByClassName("card");
@@ -31,10 +31,25 @@ var containerHistory = document.getElementById("containerHistory");
 
 var cardDisposal = document.getElementById("cardDisposal");
 
-// makes the elements draggable
-for (var i=0; i<users.length; i++) {
-    users[i].setAttribute("draggable", true);
-    users[i].firstChild.innerText = userList[i].firstName.charAt(0).toUpperCase() + userList[i].lastName.charAt(0).toUpperCase();
+// loading in users that is currently in the local memory.
+for (var i=0; i<userList.length; i++) {
+    var userDiv = document.createElement("div");
+    var userH3 = document.createElement("h3");
+    
+    userDiv.className = "users";
+    userH3.className = "textUser";
+    userDiv.id = "user" + (i + 1);
+    
+    userContainer.appendChild(userDiv);
+    userDiv.appendChild(userH3);
+    
+    userDiv.setAttribute("draggable", true);
+    userDiv.addEventListener("dragstart", e => {
+        userId = e.target.id;
+    });
+    
+    userH3.innerText = userList[i].firstName.charAt(0).toUpperCase() +
+    userList[i].lastName.charAt(0).toUpperCase();
 }
 
 //--* GLOBAL variables *--
@@ -45,13 +60,6 @@ var userId;
 
 // array for alle Acitivity loggene
 const activityLogEntries = [];
-
-// putting id's on the users
-for(var i =0; i<users.length; i++){
-    users[i].addEventListener("dragstart", e => {
-        userId = e.target.id;
-    });
-}
 
 // pluss-tegn knappen på venstre side av siden.
 let newProjectBtn = document.getElementById("btnCreateCard");

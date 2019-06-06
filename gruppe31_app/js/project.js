@@ -32,6 +32,10 @@
     projectmembers.splice(indexToDelete, 1);
     projectmembers.unshift(currentUserObj);
 
+    for(let i=0;i<projectmembers.length;i++){
+        projectmembers[i].elementId = "user"+(i+1);
+    }
+
     //Addcard button Element
     var addCardBtn = document.getElementById("addCard");
     //addRow Button Element

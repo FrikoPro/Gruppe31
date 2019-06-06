@@ -663,15 +663,26 @@
         let currentZoneObj = getZoneObjectById(zoneID);
         
         targetZone.parentNode.removeChild(targetZone); 
-        dropZones.splice(dropZones.indexOf(currentZoneObj), 1);
+        
         PrintOutActivityLog("zoneRemoved", currentZoneObj.name);
         
         //sletter kort objektene som lå i sonen som ble slettet fra cards[]
+        let objToDelete = [];
         for(var i = 0; i < cards.length; i++){
             if(cards[i].status == currentZoneObj.elementId){
-                cards.splice(i , 1);
+                objToDelete.push(cards[i]);
+            
+                
                }
+            
         }
+        
+         for(var i = 0; i < objToDelete.length; i++){
+                cards.splice(cards.indexOf(objToDelete[i]) , 1);
+                
+            }
+        
+        dropZones.splice(dropZones.indexOf(currentZoneObj), 1);
         updatePercentDone();
     }
 

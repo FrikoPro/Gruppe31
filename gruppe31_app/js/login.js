@@ -2,7 +2,7 @@ if(!localStorage.getItem("usersArray")){
     var users = [
         {name: "Sindre", firstName: "Sindre", lastName: "Fromreide Bore", password: "Password123"},
         {name: "Bengt", firstName: "Bengt", lastName: "Bengen", password: "h4x0r1337"},
-        {name: "test", firstName: "test", lastName: "test", password: "test1234"}
+        {name: "Fredrik", firstName: "Fredrik", lastName: "Jansen", password: "test1234"}
     ];
 } else{
     

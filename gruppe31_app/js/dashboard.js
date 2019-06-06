@@ -2,13 +2,14 @@
 // Javascript for the dashboard
 /* TABLE OF CONTENTS 
 content: LineNr(start-end)
-Global variables: 14-64
-Adding users: 67-85
-creating project: 88-178
-Project history: 181-191
-Deleting stuff: 195-231
-Activity log: 235-292
-Create project popUp: 296-335
+Global variables: 18-68
+Adding users: 71-89
+creating project: 91-175
+Project history: 178-193
+Deleting stuff: 195-220
+Activity log: 223-280
+Create project popUp: 283-322
+Changing userId to username: 325-333
 */
 
 
@@ -103,15 +104,6 @@ function AddProject(){
 
 }
 
-function checkUser (user, list) {
-    for(var i=0; i<list.length; i++) {
-        if(user === "user" + (i+1)) {
-            userId = userList[i].name;
-        } else {continue;}
-        break;
-    }
-    return userId;
-}
 
 // function thats runs when creating project from the "create" button
 function RenderProject(project){
@@ -226,7 +218,7 @@ cardDisposal.addEventListener("drop", e=> {
             }
         }
     }
-});
+}); 
 
 // logging events activity log
 function PrintOutActivityLog(handling, item1, item2){
@@ -286,7 +278,7 @@ function renderActivityLogFromArray(entry){
     createLogEntryContainer.appendChild(createLogEntryUser);
     createLogEntryContainer.appendChild(createLogEntry);
     createLogEntryContainer.appendChild(createLogDate);
-}
+} 
 
 // popUp when adding a project
 function editProjectName(projectObj){
@@ -328,4 +320,15 @@ function editProjectName(projectObj){
             PrintOutActivityLog("cardAdded", projectObj.name);
         
         });
+} 
+
+// changing userId to username
+function checkUser (user, list) {
+    for(var i=0; i<list.length; i++) {
+        if(user === "user" + (i+1)) {
+            userId = userList[i].name;
+        } else {continue;}
+        break;
+    }
+    return userId;
 }

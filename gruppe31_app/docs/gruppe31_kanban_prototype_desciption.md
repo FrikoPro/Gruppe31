@@ -1,8 +1,9 @@
 
-PRO101 Webprosjekt
-Eksamensoppgave
-June 6, 19
-PROGRAMVARE & PROTOTYPE BESKRIVELSE
+# PRO101 Webprosjekt
+### Eksamensoppgave
+### June 6, 19
+
+# PROGRAMVARE & PROTOTYPE BESKRIVELSE
 Utviklet av 
 Jonas Say, Fredrik Holanger, Fredrik Jansen, Sindre Fromeide og Benjamin Opsal
 Gruppe 31 har i forbindelse med eksamen i faget PRO101 utviklet en web-applikasjon (prototype) i henhold til eksamenskriterier. Prosjektet finnes i sin helhet slik det ble levert på: https://github.com/FrikoPro/Gruppe31. Alle endringer som er utført etter 07/06/2019 klokken 15:00 inngår ikke i den leverte eksamensoppgaven. 

@@ -377,3 +377,22 @@ margin-top: 20px;
   
 }
 
+.userHover{
+    visibility: hidden;
+    width: 100px;
+    background-color: rgba(0,0,0, 0.8);
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 100;
+    left: 6em;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+
+.users:hover .userHover{
+    visibility: visible;
+}

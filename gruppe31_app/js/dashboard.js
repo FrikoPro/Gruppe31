@@ -70,8 +70,8 @@ var counterUser = 0;
 
 // loading in users that is currently in the localStorage
 for (var i=0; i<userList.length; i++) {
-    var userDiv = document.createElement("div");
-    var userH3 = document.createElement("h3");
+    var userDiv = document.createElement("DIV");
+    var userH3 = document.createElement("H3");
     
     userDiv.className = "users";
     userH3.className = "textUser";

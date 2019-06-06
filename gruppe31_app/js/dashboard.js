@@ -186,6 +186,11 @@ BtnHistory.addEventListener("drop", e=> {
     var projectData = e.dataTransfer.getData("text/plain");
     var card = document.getElementById(projectData);
     historyProject.appendChild(card);
+    for(var i=0; i<projects.length; i++) {
+        if (projects[i].elementId === projectData) {
+            PrintOutActivityLog("projectHistory", projects[i].name);
+        }
+    }
 });
 
 // remove projects and users
@@ -243,6 +248,10 @@ function PrintOutActivityLog(handling, item1, item2){
             break;
         
         case "userRemoved": activityText = " Slettet " + item1 + " fra prosjektet " + item2;
+            
+            break;
+        
+        case "projectHistory": activityText = item1 + " er flyttet til Historie";
             
             break;
     }

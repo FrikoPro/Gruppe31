@@ -40,9 +40,9 @@ Her finnes tekniske detaljer utover det som er kommenter i koden. Se kommentarer
 
 ##### Filstruktur
 * gruppe31_app (mappe)
-	*css (mappe)
-	*img (mappe)
-	*js (mappe)
+	- css (mappe)
+	- img (mappe)
+	- js (mappe)
 * dashboard.html
 * landing.html
 * project.html

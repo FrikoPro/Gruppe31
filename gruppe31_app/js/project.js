@@ -3,6 +3,7 @@
 //Current User
 
     var currentUserCookie = getCookie("currentUser").split("[?]");
+    var currentUserObj = {name: currentUserCookie[0], firstName: currentUserCookie[1], lastName: currentUserCookie[2], password: currentUserCookie[3]}
     
     var cardCounter = 0;
     var zoneCounter = 3;
@@ -20,12 +21,16 @@
     //et array som skal lagre alt som blir skrevet ut i activityLoggen
     const activityLogEntries = [];
     
-    const projectmembers = [{firstName: "Fredrik", lastName: "Holanger", elementId: "user1"},
+    var projectmembers = JSON.parse(localStorage.getItem("usersArray"))/*[{firstName: "Fredrik", lastName: "Holanger", elementId: "user1"},
                             {firstName: "Kredrik", lastName: "Polanger", elementId: "user2"},
                             {firstName: "Fredrik", lastName: "Holanger", elementId: "user3"},
                             {firstName: "Fredrik", lastName: "Holanger", elementId: "user4"}
-                           ];
+                           ];*/
     
+    //Removes the object of the current user from projectmembers before putting it back at the start of the array
+    let indexToDelete = projectmembers.indexOf(projectmembers.find(o => o.name == currentUserObj.name));
+    projectmembers.splice(indexToDelete, 1);
+    projectmembers.unshift(currentUserObj);
 
     //Addcard button Element
     var addCardBtn = document.getElementById("addCard");

@@ -27,8 +27,9 @@
                             {firstName: "Fredrik", lastName: "Holanger", elementId: "user4"}
                            ];*/
     
+    //Removes the object of the current user from projectmembers before putting it back at the start of the array
     let indexToDelete = projectmembers.indexOf(projectmembers.find(o => o.name == currentUserObj.name));
-    projectmembers.splice(indexToDelete, indexToDelete + 1);
+    projectmembers.splice(indexToDelete, 1);
     projectmembers.unshift(currentUserObj);
 
     //Addcard button Element

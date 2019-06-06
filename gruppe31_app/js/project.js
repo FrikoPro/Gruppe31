@@ -474,7 +474,7 @@
                 description: "Card Content",
                 status: dropZones[0].elementId,
                 userIcons: [],
-                deadLine: "ingen",
+                deadLine: "",
                 elementId: "card" + cardCounter
         };
           

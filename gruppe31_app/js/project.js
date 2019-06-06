@@ -340,17 +340,20 @@
     //tar inn et bruker objekt og Lager et user Icon og returnerer dom elementet
     function createUserIcon(userObj){
         let userIconDiv = document.createElement("DIV");
+        let hoverMember = document.createElement("SPAN");
         let userIconText = document.createElement("H3");
         let userInitials = (userObj.firstName.charAt(0) + userObj.lastName.charAt(0)).toLocaleUpperCase();
         
         
-        
+        hoverMember.className = "userHover";
+        hoverMember.innerText = userObj.firstName + " " + userObj.lastName;
         userIconDiv.style.background = "gold";
         userIconDiv.id = userObj.elementId;
         userIconDiv.className = "users";
         userIconText.className = "textUsers";
         userIconText.innerText = userInitials;
         
+        userIconDiv.appendChild(hoverMember);
         userIconDiv.appendChild(userIconText);
         
         

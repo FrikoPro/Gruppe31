@@ -72,6 +72,13 @@ a{
     background: inherit;
     box-shadow: inset 0 0 0 200px rgba(255,255,255,0.4);
 }
+.cm-card-5{
+    display: block;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px rgba(33, 33, 33, 0.5);
+}
 
 /* SHADOW */
 .cm-shadow{
@@ -160,6 +167,14 @@ a{
 .cm-icon-3:hover{
     font-size: 20px;
 }
+.cm-icon-4{
+    color: #ff6600;
+    font-size: 25px;
+    transition: all 0.1 ease-in-out;
+}
+.cm-icon-4:hover{
+    color: #ccc;
+}
 /* TEXT */
 .cm-text{
     padding: 20px;
@@ -169,6 +184,13 @@ a{
 }
 .cm-text-p1{
     padding-left: 10px;
+}
+.cm-text-dark{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff6600;
+    text-transform: uppercase;
 }
 
 /* PROJECT SPECIFIC CLASSES */

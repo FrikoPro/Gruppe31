@@ -1,6 +1,8 @@
 // dashboard.js
 // Javascript for the dashboard
 
+var currentUserCookie = getCookie("currentUser").split("[?]");
+var currentUser = currentUserCookie[0];
 // users array of the user icon in the top right corner
 var users = document.getElementsByClassName("users");
 
@@ -160,7 +162,7 @@ cardDisposal.addEventListener("drop", e=> {
     var id = e.dataTransfer.getData("text/plain");
     var element = document.getElementById(id);
     for(var i=0; i<projects.length; i++) {
-        if(projects[i].elementId.includes(id)) {
+        if(projects[i].elementId.includes(id) && id != "") {
             PrintOutActivityLog("cardRemoved", projects[i].name);
             element.parentNode.removeChild(element);
             projects.splice(i, 1);
@@ -210,7 +212,7 @@ function PrintOutActivityLog(handling, item1, item2){
     activityLogEntries.push({
         logEntry: activityText,
         logDate: dateTime,
-        name: "Prosjekt Leder"
+        name: currentUser
             
     });
     renderActivityLogFromArray(activityLogEntries[activityLogEntries.length-1])

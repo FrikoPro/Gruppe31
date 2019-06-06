@@ -3,7 +3,7 @@
 //Current User
 
     var currentUserCookie = getCookie("currentUser").split("[?]");
-    var currentUserObj = {name: currentUserCookie[0], firstName: currentUserCookie[1], lastName: currentUserCookie[2], password: currentUserCookie[3]}
+    var currentUserObj = {elementId: currentUserCookie[0], firstName: currentUserCookie[1], lastName: currentUserCookie[2], password: currentUserCookie[3]}
     
     var cardCounter = 0;
     var zoneCounter = 3;

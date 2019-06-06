@@ -15,7 +15,10 @@ Kanban'ish WebApp
 3. Redo dashboard-cards to hold percentage bar
 
 BUGS:
-Collect-users-from-trash-bug: Drag a member to trash. Create project card. Drag card over trash without letting go. Drag project-card back to main area. You should see the member added to the project.
+###### Collect-users-from-trash-bug: Drag a member to trash. Create project card. Drag card over trash without letting go. Drag project-card back to main area. You should see the member added to the project.
+
+###### A project card can only handle 6 users
+
 
 
 

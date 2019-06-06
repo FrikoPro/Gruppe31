@@ -39,14 +39,14 @@ Applikasjons-tilstand og overføring av data internt: Prototypen benytter “coo
 Her finnes tekniske detaljer utover det som er kommenter i koden. Se kommentarer i de respektive filene hvis du ikke finner dokumentasjon her. I dette dokumentet omtales kun filer og funksjoner av en uvanlig art. 
 
 ##### Filstruktur
-gruppe31_app (mappe)
-	- css (mappe)
-	- img (mappe)
-	- js (mappe)
-	- dashboard.html
-	- landing.html
-	- project.html
-	- welcome.html
+* gruppe31_app (mappe)
+	..* css (mappe)
+	..* img (mappe)
+	..* js (mappe)
+	* dashboard.html
+	* landing.html
+	* project.html
+	* welcome.html
 
 
 Strøm: welcome -> landing -> dashboard -> project.

@@ -218,8 +218,8 @@ margin-top: 20px;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    width: 45vh;
-    height: 18vh;
+    width: 450px;
+    height: 180px;
     background-color: black;
     z-index: 12;
     border-radius: 25px;

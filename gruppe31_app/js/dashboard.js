@@ -19,8 +19,10 @@ Changing userId to username: 325-333
 if(getCookie("currentUser")){
     var currentUserCookie = getCookie("currentUser").split("[?]");
     var currentUser = currentUserCookie[0];
+} else if (localStorage.getItem("currentUser")){
+    var currentUser = JSON.parse(localStorage.getItem("currentUser")).name;
 } else {
-    currentUser = "Gjest";
+    var currentUser = "Gjest";
 }
 
 // array of local currently users

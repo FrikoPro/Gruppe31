@@ -5,8 +5,10 @@
     if(getCookie("currentUser")){
         var currentUserCookie = getCookie("currentUser").split("[?]");
         var currentUserObj = {elementId: currentUserCookie[0], firstName: currentUserCookie[1], lastName: currentUserCookie[2], password: currentUserCookie[3]}
+    } else if (localStorage.getItem("currentUser")){
+        var currentUserObj = JSON.parse(localStorage.getItem("currentUser"));
     } else {
-        currentUserObj = {elementId: "Gjest", firstName: "Gjest", lastName: "Gjestson", password: ""}
+        var currentUserObj = {elementId: "Gjest", firstName: "Gjest", lastName: "Gjestson", password: ""}
     }
     
     var cardCounter = 0;

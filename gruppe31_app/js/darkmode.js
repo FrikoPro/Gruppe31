@@ -23,45 +23,78 @@ function styleClassTextColor(elementClass, color){
 if (getCookie("darkmode") == ""){
     setCookie("darkmode", "0", 99);
 }
-var darkmode = getCookie("darkmode");
+//If the cookie fails darkmode is saved to localStorage instead
+if (!getCookie("darkmode")){
+    localStorage.setItem("darkmode", "1");
+}
+
+if (getCookie("darkmode")){
+    var darkmode = getCookie("darkmode");
+} else {
+    var darkmode = localStorage.getItem("darkmode");
+}
 
 //Changes the site to darkmode upon loading if the darkmode cookie is "1"
 if(darkmode == "1") {
         body.style.backgroundColor = "#444444";
         body.style.color = "#fff";
         darkmodeIcon.style.color = "#ffffff";
-        setCookie("darkmode", "1", 99);
-        darkmode = getCookie("darkmode");
         styleClassBackgroundColor(cardsClass, "#3a3a3a");
-        styleClassTextColor(textUserClass, "#fff")
+        styleClassTextColor(textUserClass, "#fff");
+    
+        if(getCookie("darkmode")){
+            setCookie("darkmode", "1", 99);
+            darkmode = getCookie("darkmode");
+        } else {
+            localStorage.setItem("darkmode", "1");
+            darkmode = localStorage.getItem("darkmode");
+        }
     } else {
         body.style.backgroundColor = "#ffffff";
         body.style.color = "#444444";
         darkmodeIcon.style.color = "#000000";
-        setCookie("darkmode", "0", 99);
-        darkmode = getCookie("darkmode");
         styleClassTextColor(textUserClass, "#333333")
+        
+        if(getCookie("darkmode")){
+            setCookie("darkmode", "0", 99);
+            darkmode = getCookie("darkmode");
+        } else {
+            localStorage.setItem("darkmode", "0")
+            darkmode = localStorage.getItem("darkmode");
+        }
     }
 
 //Makes clicking on the darkmode icon switch the site between darkmode on/off
 darkmodeIcon.addEventListener("click", () =>{
-  if(darkmode == "0") {
+    if(darkmode == "0") {
         body.style.backgroundColor = "#444444";
         body.style.color = "#fff";
         darkmodeIcon.style.color = "#ffffff";
-        setCookie("darkmode", "1", 99);
-        darkmode = getCookie("darkmode");
         styleClassBackgroundColor(cardsClass, "#3a3a3a");
         styleClassBackgroundColor(columnHeaderClass, "#3a3a3a");
-        styleClassTextColor(textUserClass, "#fff")
+        styleClassTextColor(textUserClass, "#fff");
+        
+        if(getCookie("darkmode")){
+            setCookie("darkmode", "1", 99);
+            darkmode = getCookie("darkmode");
+        } else {
+            localStorage.setItem("darkmode", "1");
+            darkmode = localStorage.getItem("darkmode");
+        }
     } else {
         body.style.backgroundColor = "#ffffff";
         body.style.color = "#444444";
         darkmodeIcon.style.color = "#000000";
-        setCookie("darkmode", "0", 99);
-        darkmode = getCookie("darkmode");
         styleClassBackgroundColor(cardsClass, "#fff");
         styleClassBackgroundColor(columnHeaderClass, "#fff");
         styleClassTextColor(textUserClass, "#333333")
+        
+        if(getCookie("darkmode")){
+            setCookie("darkmode", "0", 99);
+            darkmode = getCookie("darkmode");
+        } else {
+            localStorage.setItem("darkmode", "0");
+            darkmode = localStorage.getItem("darkmode");
+        }
     }
 })

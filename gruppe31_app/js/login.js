@@ -45,6 +45,10 @@ loginBtnElement.addEventListener("click", function(){
         
         document.cookie = "currentUser=" + currentUserString + ";expires=" + d + ";";
         
+        if(!getCookie("currentUser")){
+            localStorage.setItem("currentUser", JSON.stringify(currentUser));
+        }
+        
         location.href = "dashboard.html";  
     } else {
         usernameInputElement.value = "Try again";

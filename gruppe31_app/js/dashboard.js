@@ -16,8 +16,14 @@ Changing userId to username: 325-333
 //--* GLOBAL variables *--
 
 // variable that gets the user info of the currently user that is  logged in
-var currentUserCookie = getCookie("currentUser").split("[?]");
-var currentUser = currentUserCookie[0];
+if(getCookie("currentUser")){
+    var currentUserCookie = getCookie("currentUser").split("[?]");
+    var currentUser = currentUserCookie[0];
+} else if (localStorage.getItem("currentUser")){
+    var currentUser = JSON.parse(localStorage.getItem("currentUser")).name;
+} else {
+    var currentUser = "Gjest";
+}
 
 // array of local currently users
 var userList = JSON.parse(localStorage.getItem("usersArray"));
@@ -72,17 +78,13 @@ var counterUser = 0;
 for (var i=0; i<userList.length; i++) {
     var userDiv = document.createElement("DIV");
     var userH3 = document.createElement("H3");
-    var hoverMember = document.createElement("SPAN");
     
     userDiv.className = "users";
     userH3.className = "textUser";
-    hoverMember.className = "userHover";
-    hoverMember.innerText = userList[i].firstName + " " + userList[i].lastName;
     userDiv.id = "user" + (i + 1);
     
     userContainer.appendChild(userDiv);
     userDiv.appendChild(userH3);
-    userDiv.appendChild(hoverMember);
     
     userDiv.setAttribute("draggable", true);
     userDiv.addEventListener("dragstart", e => {
@@ -149,11 +151,11 @@ function RenderProject(project){
                 let user = document.getElementById(userId);
                 let card = document.getElementById(cardId);
                 let cln = user.cloneNode(true);
+                cln.removeChild(cln.children[1]);
                 cln.id = "clone" + counterUser;
                 counterUser++;
                 projects[i].users.push(cln.id);
                 projects[i].users.push(userId);
-                card.childNodes[2].appendChild(cln);
                 checkUser(userId, userList);
                 PrintOutActivityLog("addedUser", userId, projects[i].name);
                 userId = "";

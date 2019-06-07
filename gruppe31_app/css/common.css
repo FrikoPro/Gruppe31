@@ -197,7 +197,7 @@ a{
 
 /* Logo */
 .cm-logo{
-    height: 40px;
+    height: 30px;
     transition: all .2s ease;
 }
 .cm-logo:hover{

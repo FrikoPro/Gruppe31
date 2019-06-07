@@ -151,9 +151,9 @@ function RenderProject(project){
                 let user = document.getElementById(userId);
                 let card = document.getElementById(cardId);
                 let cln = user.cloneNode(true);
-                cln.removeChild(cln.children[1]);
                 cln.id = "clone" + counterUser;
                 counterUser++;
+                card.children[2].appendChild(cln);
                 projects[i].users.push(cln.id);
                 projects[i].users.push(userId);
                 checkUser(userId, userList);

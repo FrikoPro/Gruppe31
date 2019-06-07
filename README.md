@@ -2,6 +2,8 @@
 ### Eksamensoppgave
 ### June 6, 19
 
+######Applikasjonen ligger i mappen gruppe31_app
+
 # PROGRAMVARE & PROTOTYPE BESKRIVELSE
 #### Utviklet av 
 *Jonas Say, Fredrik Holanger, Fredrik Jansen, Sindre Fromeide og Benjamin Opsal*

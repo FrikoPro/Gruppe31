@@ -349,10 +349,13 @@ a{
     align-content: center;
     justify-content: center;
     color: #fff;
+    margin: 0;
+    overflow: hidden;
 }
 .footer-content{
     display: flex;
     align-items: center;
+    margin: 0;
 }
 .cm-h6{
     font-size: 12px;

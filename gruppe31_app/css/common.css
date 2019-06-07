@@ -198,6 +198,10 @@ a{
 /* Logo */
 .cm-logo{
     height: 40px;
+    transition: all .2s ease;
+}
+.cm-logo:hover{
+    height: 41px;
 }
 
 /* PROGRESS BAR */
@@ -326,7 +330,8 @@ a{
     width: 80%;
     height: 90%;
     border-radius: 25px;
-    border: 1px solid rgba(209, 209, 209, 1);
+    border: 1px solid rgba(209, 209, 209, .2);
+    background-color: rgba(240, 240, 240, 0.1);
     overflow-y: scroll;
 }
 
@@ -337,10 +342,21 @@ a{
 /* FOOTER */
 .footer{
     grid-area: footer;
-    background-color: #081738;
+    background-color: #0D4D96;
     display: flex;
     align-content: center;
     justify-content: center;
     color: #fff;
 }
-
+.footer-content{
+    display: flex;
+    align-items: center;
+}
+.cm-h6{
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.cm-footer-icon{
+    height: 20px;
+}

@@ -120,7 +120,7 @@ function RenderProject(project){
     createH3.className = "card-title";
     createBtn.className = "card-title-button";
     createI.className = "fas fa-door-open cm-icon-3";
-    createContent.className = "card-content";
+    createContent.className = "card-title";
     createDivM.className = "card-members cm-grid-light";
     
     createArticle.id = "project" + counterProject;
@@ -128,7 +128,7 @@ function RenderProject(project){
     counterProject++;
     
     createH3.innerText = project.name;
-    createContent.innerText = "Project info";
+    createContent.innerText = "Click on the door to enter ;-)";
     
     main.appendChild(createArticle);
     createArticle.appendChild(createDiv);

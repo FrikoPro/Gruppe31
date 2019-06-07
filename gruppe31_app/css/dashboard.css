@@ -7,7 +7,7 @@ html,body{
 /* Dark Mode */
 body{
     /* background: #fff; */
-    background-image: url("../img/newBackground.svg");
+    background-image: url("../img/background.png");
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;

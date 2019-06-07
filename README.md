@@ -1,6 +1,8 @@
 # PRO101 Webprosjekt
 ### Eksamensoppgave
 ### June 6, 19
+### PRØV APPLIKASJONEN LIVE HER
+www.erigo.zyx
 
 ###### Applikasjonen ligger i mappen gruppe31_app
 

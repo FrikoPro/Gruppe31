@@ -347,3 +347,7 @@ function checkUser (user, list) {
     }
     return userId;
 }
+
+if(getCookie("darkmode") == "1" || localStorage.getItem("darkmode") == "1"){
+    document.getElementById("body-dashboard").style.backgroundImage = "url()";
+}

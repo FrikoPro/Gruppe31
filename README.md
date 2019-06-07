@@ -11,7 +11,7 @@ Gruppe 31 har i forbindelse med eksamen i faget PRO101 utviklet en web-applikasj
 Prototypen er et lettvekts prosjektstyringsverktøy. Applikasjonen simulerer en klassisk Kanban tavle der arbeidsoppgaver deles opp og plasseres inn i kolonner. Kolonnene illustrerer visuelt hvor i prosessen en arbeidsoppgave til en hver tid befinner seg. Applikasjonen skal fungere som et prosjekteringsverktøy som gir et helhetlig bilde av fremdrift og arbeidsoppgaver.
 
 ## Bruk
-Applikasjonen er tiltenkt mindre prosjekter der bruker ikke har tid eller ønsker å  sette seg inn i et nytt prosjekstyringksverktøy. Brukergrensesnitt, ikoner og plassering av objekter følger generelle normer for god GUI-design. Applikasjonen er generell, ryddig og kan settes opp på under 5 minutter. 
+Applikasjonen er tiltenkt mindre prosjekter. Applikasjonen er generell, ryddig og fungerer "Out of the box". 
 
 ## Funksjonalitet
 En bruker logger inn i applikasjonen ved å taste inn brukernavn og passord på innloggingssiden. Etter godkjent innlogging føres brukeren til applikasjonens dashbord. I tillegg til å fungere som en oversikt kan nye prosjekter opprettes, slettes eller legges i historie arkivet. Applikasjonens grensesnitt er delt inn i tre hovedgrupper. På venstre side finner vi en meny med ulik funksjonalitet. Høyre side er forbeholdt en aktivitets-logg som viser hendelser i kronologisk rekkefølge. Mellom disse finner vi et hovedområdet som er tiltenkt de ulike prosjektene som opprettes. Brukeren kan navigere inn i de ulike prosjektene via en knapp på selve prosjekt-kortet etter at det er opprettet. 

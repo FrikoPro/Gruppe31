@@ -72,17 +72,13 @@ var counterUser = 0;
 for (var i=0; i<userList.length; i++) {
     var userDiv = document.createElement("DIV");
     var userH3 = document.createElement("H3");
-    var hoverMember = document.createElement("SPAN");
     
     userDiv.className = "users";
     userH3.className = "textUser";
-    hoverMember.className = "userHover";
-    hoverMember.innerText = userList[i].firstName + " " + userList[i].lastName;
     userDiv.id = "user" + (i + 1);
     
     userContainer.appendChild(userDiv);
     userDiv.appendChild(userH3);
-    userDiv.appendChild(hoverMember);
     
     userDiv.setAttribute("draggable", true);
     userDiv.addEventListener("dragstart", e => {
@@ -154,7 +150,6 @@ function RenderProject(project){
                 counterUser++;
                 projects[i].users.push(cln.id);
                 projects[i].users.push(userId);
-                card.childNodes[2].appendChild(cln);
                 checkUser(userId, userList);
                 PrintOutActivityLog("addedUser", userId, projects[i].name);
                 userId = "";

@@ -70,8 +70,8 @@ var counterUser = 0;
 
 // loading in users that is currently in the localStorage
 for (var i=0; i<userList.length; i++) {
-    var userDiv = document.createElement("div");
-    var userH3 = document.createElement("h3");
+    var userDiv = document.createElement("DIV");
+    var userH3 = document.createElement("H3");
     
     userDiv.className = "users";
     userH3.className = "textUser";
@@ -186,6 +186,11 @@ BtnHistory.addEventListener("drop", e=> {
     var projectData = e.dataTransfer.getData("text/plain");
     var card = document.getElementById(projectData);
     historyProject.appendChild(card);
+    for(var i=0; i<projects.length; i++) {
+        if (projects[i].elementId === projectData) {
+            PrintOutActivityLog("projectHistory", projects[i].name);
+        }
+    }
 });
 
 // remove projects and users
@@ -205,8 +210,8 @@ cardDisposal.addEventListener("drop", e=> {
             break;
         } else if (projects[i].users.includes(id)) {
             var project = document.getElementById(projects[i].elementId);
-            for(var j=0; j<project.childElementCount; j++) {
-                var elements = project.children[2].children;
+            var elements = project.children[2].children;
+            for(var j=0; j<elements.length; j++) {
                 if(elements[j].id === id) {
                     elements[j].parentElement.removeChild(elements[j]);
                     userId = projects[i].users[projects[i].users.indexOf(id)+1];
@@ -243,6 +248,10 @@ function PrintOutActivityLog(handling, item1, item2){
             break;
         
         case "userRemoved": activityText = " Slettet " + item1 + " fra prosjektet " + item2;
+            
+            break;
+        
+        case "projectHistory": activityText = item1 + " er flyttet til Historie";
             
             break;
     }

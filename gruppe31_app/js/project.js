@@ -462,7 +462,9 @@
         updatePercentDone();
         if(getCookie("darkmode") == "1"){
             styleClassBackgroundColor(columnHeaderClass, "#3a3a3a");
-        } 
+        } else if (localStorage.getItem("darkmode") == "1"){
+            styleClassBackgroundColor(columnHeaderClass, "#3a3a3a");
+        }
         
         
     }
@@ -491,7 +493,9 @@
         
         if(getCookie("darkmode") == "1"){
             styleClassBackgroundColor(cardsClass, "#3a3a3a");
-        } 
+        } else if (localStorage.getItem("darkmode") == "1"){
+            styleClassBackgroundColor(cardsClass, "#3a3a3a");
+        }
         updatePercentDone();
     }   
     
@@ -779,7 +783,9 @@
     //Puts column headers in darkmode if the darkmode cookie is "1"
     if(getCookie("darkmode") == "1"){
                 styleClassBackgroundColor(columnHeaderClass, "#3a3a3a");
-            } 
+            } else if (localStorage.getItem("darkmode") == "1"){
+                styleClassBackgroundColor(columnHeaderClass, "#3a3a3a");
+            }
 
 
     

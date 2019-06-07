@@ -2,7 +2,7 @@
 ### Eksamensoppgave
 ### June 6, 19
 
-######Applikasjonen ligger i mappen gruppe31_app
+###### Applikasjonen ligger i mappen gruppe31_app
 
 # PROGRAMVARE & PROTOTYPE BESKRIVELSE
 #### Utviklet av 

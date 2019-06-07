@@ -210,8 +210,8 @@ cardDisposal.addEventListener("drop", e=> {
             break;
         } else if (projects[i].users.includes(id)) {
             var project = document.getElementById(projects[i].elementId);
-            for(var j=0; j<project.childElementCount; j++) {
-                var elements = project.children[2].children;
+            var elements = project.children[2].children;
+            for(var j=0; j<elements.length; j++) {
                 if(elements[j].id === id) {
                     elements[j].parentElement.removeChild(elements[j]);
                     userId = projects[i].users[projects[i].users.indexOf(id)+1];

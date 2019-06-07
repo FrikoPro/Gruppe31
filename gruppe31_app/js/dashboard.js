@@ -16,8 +16,12 @@ Changing userId to username: 325-333
 //--* GLOBAL variables *--
 
 // variable that gets the user info of the currently user that is  logged in
-var currentUserCookie = getCookie("currentUser").split("[?]");
-var currentUser = currentUserCookie[0];
+if(getCookie("currentUser")){
+    var currentUserCookie = getCookie("currentUser").split("[?]");
+    var currentUser = currentUserCookie[0];
+} else {
+    currentUser = "Gjest";
+}
 
 // array of local currently users
 var userList = JSON.parse(localStorage.getItem("usersArray"));

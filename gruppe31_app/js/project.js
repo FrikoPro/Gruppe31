@@ -1,14 +1,18 @@
 //var currentUserCookie = getCookie("currentUser").split("[?]");
 //var currentUser =  {name: currentUserCookie[0], firstName: currentUserCookie[1], lastName: currentUserCookie[2], password: currentUserCookie[3]}
 //Current User
-
-    var currentUserCookie = getCookie("currentUser").split("[?]");
-    var currentUserObj = {elementId: currentUserCookie[0], firstName: currentUserCookie[1], lastName: currentUserCookie[2], password: currentUserCookie[3]}
+    
+    if(getCookie("currentUser")){
+        var currentUserCookie = getCookie("currentUser").split("[?]");
+        var currentUserObj = {elementId: currentUserCookie[0], firstName: currentUserCookie[1], lastName: currentUserCookie[2], password: currentUserCookie[3]}
+    } else {
+        currentUserObj = {elementId: "Gjest", firstName: "Gjest", lastName: "Gjestson", password: ""}
+    }
     
     var cardCounter = 0;
     var zoneCounter = 3;
     var projectMemberCounter = 1;
-    var user = currentUserCookie[0];
+    var user = currentUserObj.firstName;
     //dropZones array
     const dropZones = [
         {name: "todo", elementId: "zone0"},

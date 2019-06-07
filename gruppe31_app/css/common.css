@@ -201,7 +201,7 @@ a{
     transition: all .2s ease;
 }
 .cm-logo:hover{
-    height: 41px;
+    height: 31px;
 }
 
 /* PROGRESS BAR */
@@ -259,6 +259,7 @@ a{
     height: 40px;
     border-radius: 20px;
     border: 1px solid rgba(209, 209, 209, 0.8);
+    cursor: pointer;
 }
 /* Sidenav */
 .side-navigation{
@@ -280,6 +281,7 @@ a{
     height: 50px;
     margin-top: 20px;
     text-align: center;
+    cursor: pointer;
 }
 .icon-container{
     display: flex;
@@ -347,10 +349,13 @@ a{
     align-content: center;
     justify-content: center;
     color: #fff;
+    margin: 0;
+    overflow: hidden;
 }
 .footer-content{
     display: flex;
     align-items: center;
+    margin: 0;
 }
 .cm-h6{
     font-size: 12px;
